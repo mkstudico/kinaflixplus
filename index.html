@@ -2,55 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-1889908156684044">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>REBA AGASOBANUYE | KINAFLIX</title>
-  <meta name="description" content="Reba filme zisobanuye zirenga 100, kubuntu na Kinaflix aho uri hose.">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-  <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
-  <meta property="og:title" content="AGASOBANUYE KINAFLIX" />
-  <meta property="og:description" content="Reba movie zisobanuye zirenga +100 kubuntu ukoresheje interneti gusa" />
-  <meta property="og:image" content="https://i.ibb.co/RpdRMfDm/Capture.png" />
-  <meta property="og:url" content="https://kinaflix-fawn.vercel.app/" />
-  <meta property="og:type" content="entertainment" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AGASOBANUYE KINAFLIX" />
-  <meta name="twitter:description" content="Reba movie zisobanuye zirenga +100 kubuntu ukoresheje interneti gusa" />
-  <meta name="twitter:image" content="https://i.ibb.co/RpdRMfDm/Capture.png" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "KINAFLIX",
-    "url": "https://kinaflix-fawn.vercel.app",
-    "description": "Reba filme zisobanuye zirenga 100, kubuntu na kinaflix aho uri hose.",
-    "inLanguage": "en",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://kinaflix-fawn.vercel.app/search.html?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>KinaFlix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     :root {
-      --primary: #e50914;
-      --primary-dark: #b2070f;
-      --primary-light: #ff3a2d;
-      --dark: #141414;
-      --light: #f4f4f4;
-      --gray: #999;
-      --dark-gray: #222;
-      --sidebar-width: 100px;
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      --content-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      --whatsapp-green: #25D366;
-      --whatsapp-dark-green: #128C7E;
-      --taskbar-height: 60px;
+      --primary-color: #e50914;
+      --text-color: #ffffff;
+      --background-color: #141414;
+      --card-bg: #1f1f1f;
     }
 
     * {
@@ -60,160 +20,70 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--dark);
-      color: var(--light);
-      display: flex;
-      min-height: 100vh;
-      -webkit-tap-highlight-color: transparent;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      touch-action: pan-y;
     }
 
     body.light-mode {
-      background: var(--light);
-      color: var(--dark);
+      --primary-color: #b20710;
+      --text-color: #000000;
+      --background-color: #f5f5f5;
+      --card-bg: #ffffff;
     }
 
-    /* Sidebar Styles */
-    .sidebar {
-      width: var(--sidebar-width);
-      background: var(--dark);
-      height: 100vh;
-      position: fixed;
-      left: 0;
-      top: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      transition: background 0.3s;
-    }
-
-    body.light-mode .sidebar {
-      background: var(--light);
-    }
-
-    .sidebar-content {
-      background: #000;
-      border-radius: 16px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      box-shadow: var(--content-box-shadow);
-      width: 80px;
-      will-change: transform;
-    }
-
-    .logo {
-      font-size: 2rem;
-      color: var(--primary);
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .logo:hover {
-      color: var(--primary-light);
-      transform: scale(1.1);
-    }
-
-    .nav-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .nav-item {
-      color: var(--light);
-      text-decoration: none;
-      font-size: 1.5rem;
-      transition: transform 0.2s, color 0.2s;
-      will-change: transform;
-    }
-
-    body.light-mode .nav-item {
-      color: var(--dark);
-    }
-
-    .nav-item:hover {
-      color: var(--primary);
-      transform: scale(1.2);
-    }
-
-    .nav-divider {
-      width: 50%;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.2);
-      margin: 0.5rem 0;
-    }
-
-    .sidebar-footer {
-      display: flex;
-      justify-content: center;
-    }
-
-    .theme-toggle {
-      background: none;
-      border: none;
-      color: var(--light);
-      cursor: pointer;
-      font-size: 1.5rem;
-      transition: transform 0.2s, color 0.2s;
-      will-change: transform;
-    }
-
-    body.light-mode .theme-toggle {
-      color: var(--dark);
-    }
-
-    .theme-toggle:hover {
-      color: var(--primary);
-      transform: scale(1.2);
-    }
-
-    /* Main Content Styles */
-    .main-content {
-      flex: 1;
-      margin-left: var(--sidebar-width);
-      transition: margin-left 0.3s;
-    }
-
-    /* Header Styles */
     header {
-      background: var(--dark);
-      padding: 1rem 2rem;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: var(--shadow);
+      z-index: 1000;
+      background: var(--background-color);
       transition: background 0.3s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    body.light-mode header {
-      background: var(--light);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .header-top {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 101;
-      background: inherit;
+      padding: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .auth-btn {
+      padding: 0.5rem 1rem;
+      background: var(--primary-color);
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .donate-btn {
+      padding: 0.5rem 1rem;
+      background: #28a745;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: none;
     }
 
     .header-bottom {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--background-color);
       transition: transform 0.3s ease;
     }
 
@@ -221,154 +91,35 @@
       transform: translateY(-100%);
     }
 
-    .header-image-box {
-      width: 50px;
-      height: 50px;
-      background: #fff;
-      border: 2px solid var(--primary);
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .header-image-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .header-text {
-      color: var(--light);
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      flex: 1;
-    }
-
-    body.light-mode .header-text {
-      color: var(--dark);
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-btn {
-      background-color: var(--whatsapp-green);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-    }
-
-    .whatsapp-btn:hover {
-      background-color: var(--whatsapp-dark-green);
-    }
-
-    /* Auth Buttons */
-    .auth-buttons {
+    .nav-items {
       display: flex;
       gap: 1rem;
-      align-items: center;
+      justify-content: center;
     }
 
-    .auth-btn {
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s;
+    .nav-item {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem;
     }
 
-    .login-btn {
-      background: transparent;
-      border: 1px solid var(--light);
-      color: var(--light);
+    .nav-item.active {
+      color: var(--primary-color);
+      font-weight: bold;
     }
 
-    body.light-mode .login-btn {
-      border: 1px solid var(--dark);
-      color: var(--dark);
-    }
-
-    .login-btn:hover {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .register-btn {
-      background: var(--primary);
-      border: 1px solid var(--primary);
-      color: white;
-    }
-
-    .register-btn:hover {
-      background: var(--primary-dark);
-    }
-
-    .profile-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--light);
+    .theme-toggle, .theme-toggle-header {
+      background: none;
       border: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    body.light-mode .profile-btn {
-      background: rgba(0, 0, 0, 0.1);
-      color: var(--dark);
-    }
-
-    .profile-btn:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .logout-btn {
-      background: transparent;
-      border: 1px solid var(--light);
-      color: var(--light);
-    }
-
-    body.light-mode .logout-btn {
-      border: 1px solid var(--dark);
-      color: var(--dark);
-    }
-
-    .logout-btn:hover {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .theme-toggle-header {
-      background: transparent;
-      border: none;
-      color: var(--light);
-      cursor: pointer;
+      color: var(--text-color);
       font-size: 1.2rem;
-      transition: color 0.3s;
+      cursor: pointer;
     }
 
-    body.light-mode .theme-toggle-header {
-      color: var(--dark);
-    }
-
-    .theme-toggle-header:hover {
-      color: var(--primary);
-    }
-
-    /* Hero Section */
     .hero-slideshow {
       position: relative;
-      height: 70vh;
+      height: 500px;
       overflow: hidden;
     }
 
@@ -378,14 +129,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), 
-                  var(--hero-background) center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 5rem;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--hero-background);
+      background-size: cover;
+      background-position: center;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 1s ease;
     }
 
     .hero-slide.active {
@@ -393,22 +141,20 @@
     }
 
     .hero-content {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
       max-width: 600px;
-      z-index: 2;
     }
 
     .hero-content h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #ccc;
-      line-height: 1.5;
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
 
     .hero-buttons {
@@ -417,186 +163,106 @@
     }
 
     .watch-btn, .info-btn {
-      padding: 0.8rem 2rem;
-      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border: none;
       border-radius: 4px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: background 0.3s, transform 0.3s;
-      border: none;
+      font-size: 1rem;
     }
 
     .watch-btn {
-      background: var(--primary);
+      background: var(--primary-color);
       color: white;
-    }
-
-    .watch-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
     }
 
     .info-btn {
-      background: rgba(109, 109, 110, 0.7);
+      background: #666;
       color: white;
     }
 
-    .info-btn:hover {
-      background: rgba(109, 109, 110, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* Section Styles */
     .section {
-      padding: 2rem 5rem;
-      background: var(--dark);
-    }
-
-    body.light-mode .section {
-      background: var(--light);
+      padding: 2rem 1rem;
     }
 
     .section-title {
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .section-title small {
+    .view-all {
+      color: var(--primary-color);
+      text-decoration: none;
       font-size: 0.9rem;
-      color: var(--gray);
     }
 
-    .section-title a {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    .section-title a:hover {
-      color: var(--primary-dark);
-    }
-
-    /* Genre Bar Styles */
-    .genre-bar {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
-      scroll-behavior: smooth;
-    }
-
-    .genre-bar a {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 1rem;
-      white-space: nowrap;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .genre-bar a:hover {
-      background: rgba(229, 9, 20, 0.2);
-      color: var(--primary-dark);
-    }
-
-    /* Movies Grid */
     .movies-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 1rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
     }
 
     .movie-card {
-      background: var(--dark-gray);
+      position: relative;
+      background: var(--card-bg);
       border-radius: 8px;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      cursor: pointer;
-    }
-
-    body.light-mode .movie-card {
-      background: #e0e0e0;
+      transition: transform 0.3s;
     }
 
     .movie-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
     }
 
     .movie-poster {
       width: 100%;
-      height: 200px;
+      height: 300px;
       object-fit: cover;
-      display: block;
-      transition: opacity 0.3s;
     }
 
     .movie-info {
-      padding: 0.6rem;
+      padding: 1rem;
     }
 
     .movie-title {
-      font-size: 0.85rem;
-      margin-bottom: 0.3rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .movie-meta {
+      font-size: 0.8rem;
+      color: #999;
       display: flex;
-      justify-content: space-between;
-      color: var(--gray);
+      gap: 0.5rem;
+    }
+
+    .movie-rating i {
+      color: #ffd700;
+    }
+
+    .view-count, .time-indicator {
       font-size: 0.75rem;
+      color: #999;
     }
 
-    .movie-rating {
-      color: gold;
-    }
-
-    .view-count {
-      font-size: 0.7rem;
-      color: var(--gray);
-      margin-top: 0.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.2rem;
-    }
-
-    .time-indicator {
-      font-size: 0.65rem;
-      color: var(--gray);
-      margin-top: 0.2rem;
-    }
-
-    .movie-overlay {
-      position: absolute;
-      top: 0
-    }
     .movie-overlay {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.8);
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-      padding: 0.6rem;
-      text-align: center;
     }
 
     .movie-card:hover .movie-overlay {
@@ -604,93 +270,138 @@
     }
 
     .overlay-title {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      color: white;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .overlay-genres {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-bottom: 0.6rem;
-      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .genre-tag {
-      background: var(--primary);
-      color: white;
-      padding: 0.15rem 0.4rem;
+      background: var(--primary-color);
+      padding: 0.2rem 0.5rem;
       border-radius: 4px;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
     }
 
     .overlay-btn {
-      background: var(--primary);
-      color: white;
+      padding: 0.5rem 1rem;
       border: none;
-      padding: 0.3rem 0.7rem;
       border-radius: 4px;
       cursor: pointer;
-      margin-top: 0.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: background 0.3s;
-      font-size: 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
     }
 
-    .overlay-btn:hover {
-      background: var(--primary-dark);
-    }
-
-    .watchlist-btn {
+    .overlay-btn.watchlist-btn {
       background: #333;
+      color: white;
     }
 
-    .watchlist-btn.in-watchlist {
-      background: #4CAF50;
+    .overlay-btn.watchlist-btn.in-watchlist {
+      background: var(--primary-color);
     }
 
     .umusobanuzi {
       position: absolute;
-      top: 6px;
-      left: 6px;
-      background: rgba(0, 0, 0, 0.7);
+      top: 0.5rem;
+      left: 0.5rem;
+      background: var(--primary-color);
       color: white;
-      padding: 0.15rem 0.3rem;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.7rem;
       border-radius: 4px;
-      font-size: 0.65rem;
-      z-index: 10;
     }
 
-    /* Watchlist Notification Popup */
-    .watchlist-notification-container {
+    .genre-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 1rem;
+      justify-content: center;
+    }
+
+    .genre-bar a {
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background: #333;
+      font-size: 0.9rem;
+    }
+
+    .genre-bar a:hover {
+      background: var(--primary-color);
+    }
+
+    .toast {
       position: fixed;
-      top: 20px;
+      bottom: 20px;
       right: 20px;
-      z-index: 2000;
+      background: #333;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+
+    .toast.success {
+      background: #28a745;
+    }
+
+    .toast.error {
+      background: #dc3545;
+    }
+
+    #loading-spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: var(--primary-color);
+      display: none;
+    }
+
+    #loading-spinner.active {
+      display: block;
+    }
+
+    #watchlist-notifications {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 1000;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      max-width: 300px;
+      gap: 0.5rem;
     }
 
     .watchlist-notification {
-      background: rgba(0, 0, 0, 0.9);
-      border-left: 4px solid var(--primary);
-      border-radius: 4px;
-      padding: 10px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 0.5rem;
       display: flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transform: translateX(120%);
-      transition: transform 0.3s ease-out;
-      max-width: 100%;
+      gap: 0.5rem;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: opacity 0.3s, transform 0.3s;
+      max-width: 300px;
     }
 
     .watchlist-notification.show {
+      opacity: 1;
       transform: translateX(0);
     }
 
@@ -703,1371 +414,675 @@
 
     .watchlist-notification-content {
       flex: 1;
-      min-width: 0;
     }
 
     .watchlist-notification-title {
       font-size: 0.9rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      margin-bottom: 0.3rem;
     }
 
     .watchlist-notification-actions {
       display: flex;
-      gap: 10px;
+      gap: 0.3rem;
     }
 
     .watchlist-notification-btn {
-      background: transparent;
+      background: none;
       border: none;
-      color: white;
+      color: var(--text-color);
       cursor: pointer;
       font-size: 0.8rem;
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    .watchlist-notification-btn.close {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .watchlist-notification-btn.close:hover {
-      background: rgba(255, 255, 255, 0.2);
     }
 
     .watchlist-notification-btn.remove {
-      background: rgba(255, 0, 0, 0.2);
+      color: #dc3545;
     }
 
-    .watchlist-notification-btn.remove:hover {
-      background: rgba(255, 0, 0, 0.3);
-    }
-
-    /* Loading Spinner */
-    .spinner {
-      display: none;
-      width: 40px;
-      height: 40px;
-      margin: 2rem auto;
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      border-top-color: var(--primary);
-      animation: spin 1s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .spinner.active {
-      display: block;
-    }
-
-    /* Footer Styles */
     footer {
-      background: var(--dark-gray);
-      padding: 3rem 5rem 1rem;
-      color: var(--gray);
-    }
-
-    body.light-mode footer {
-      background: #e0e0e0;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-column h3 {
-      color: var(--light);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    body.light-mode .footer-column h3 {
-      color: var(--dark);
-    }
-
-    .footer-column ul {
-      list-style: none;
-    }
-
-    .footer-column li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-column a {
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-column a:hover {
-      color: var(--primary);
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .social-links a {
-      color: var(--gray);
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: var(--primary);
-    }
-
-    .footer-bottom {
+      padding: 2rem 1rem;
       text-align: center;
-      padding-top: 1rem;
-      border-top: 1px solid var(--dark);
+      background: #1a1a1a;
     }
 
-    body.light-mode .footer-bottom {
-      border-top: 1px solid #ccc;
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
 
-    /* Toast Notifications */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--dark);
-      color: white;
-      padding: 1rem;
-      border-radius: 4px;
-      box-shadow: var(--shadow);
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s;
-      z-index: 1000;
+    .footer-link {
+      color: #999;
+      text-decoration: none;
+      font-size: 0.9rem;
     }
 
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .toast.success {
-      background: #4CAF50;
-    }
-
-    .toast.error {
-      background: #f44336;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-      .section, footer {
-        padding: 2rem;
-      }
-      .hero-slideshow {
-        padding: 0 2rem;
-      }
-    }
-
+    /* Mobile-specific styles */
     @media (max-width: 768px) {
-      .sidebar {
+      body {
         width: 100%;
-        height: var(--taskbar-height);
-        bottom: 0;
-        top: auto;
-        left: 0;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background: var(--dark);
-        z-index: 1000;
-        position: fixed;
-      }
-
-      body.light-mode .sidebar {
-        background: var(--light);
-      }
-
-      .sidebar-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        max-width: 600px;
-        padding: 0.5rem 1rem;
-        border-radius: 0;
-        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-        gap: 0.5rem;
-      }
-
-      .nav-menu {
-        flex-direction: row;
-        gap: 1rem;
-        justify-content: center;
-        flex-grow: 1;
-      }
-
-      .nav-item {
-        font-size: 1.2rem;
-        padding: 0.5rem;
-      }
-
-      .nav-divider {
-        width: 1px;
-        height: 20px;
-        margin: 0 0.5rem;
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      .sidebar-footer {
-        margin-left: auto;
-      }
-
-      .theme-toggle {
-        font-size: 1.2rem;
-        padding: 0.5rem;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        padding: 0.5rem;
-      }
-
-      .main-content {
-        margin-left: 0;
-        padding-bottom: var(--taskbar-height);
-      }
-
-      .header-top {
-        padding: 0.5rem 1rem;
+        overflow-x: hidden;
       }
 
       .header-bottom {
-        padding: 0.5rem 1rem;
-        background: var(--dark);
+        background: var(--background-color);
+        width: 100%;
       }
 
-      body.light-mode .header-bottom {
-        background: var(--light);
-      }
-
-      .footer-content {
-        grid-template-columns: repeat(2, 1fr);
+      .header-bottom.hidden {
+        transform: translateY(-100%);
+        display: none; /* Ensure entire header hides */
       }
 
       .hero-slideshow {
-        height: 60vh;
-        padding: 0 1rem;
-      }
-
-      .hero-slide {
-        padding: 0 1rem;
+        height: 300px;
       }
 
       .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
       }
 
       .hero-content p {
-        font-size: 1rem;
-      }
-
-      .watch-btn, .info-btn {
-        padding: 0.6rem 1.5rem;
-        font-size: 1rem;
-      }
-
-      .watchlist-notification-container {
-        top: 70px;
-        right: 10px;
-        max-width: calc(100% - 20px);
-      }
-
-      .watchlist-notification {
-        padding: 8px;
-        gap: 8px;
-      }
-
-      .watchlist-notification-poster {
-        width: 40px;
-        height: 60px;
-      }
-
-      .watchlist-notification-title {
         font-size: 0.8rem;
       }
 
-      .watchlist-notification-actions {
-        gap: 5px;
+      .watch-btn, .info-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
       }
 
-      .watchlist-notification-btn {
-        font-size: 0.7rem;
-        padding: 3px 6px;
+      .movies-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        padding: 0.5rem;
       }
 
-      .header-image-box {
-        width: 40px;
-        height: 40px;
+      .movie-card {
+        flex: 0 0 auto;
+        width: 100px;
+        min-width: 100px;
       }
 
-      .header-text {
-        font-size: 1rem;
+      .movie-poster {
+        height: 150px;
       }
 
-      .donate-btn-container {
-        display: none;
+      .movie-info {
+        padding: 0.4rem;
+      }
+
+      .movie-title {
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .movie-meta {
+        font-size: 0.65rem;
+      }
+
+      .view-count, .time-indicator {
+        font-size: 0.6rem;
+      }
+
+      .movie-overlay {
+        padding: 0.4rem;
+      }
+
+      .overlay-title {
+        font-size: 0.75rem;
+      }
+
+      .overlay-genres {
+        gap: 0.2rem;
+      }
+
+      .genre-tag {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.3rem;
+      }
+
+      .overlay-btn {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.65rem;
+      }
+
+      .umusobanuzi {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.2rem;
       }
     }
 
     @media (max-width: 576px) {
-      .section, footer {
-        padding: 1rem;
+      .movie-card {
+        width: 90px;
+        min-width: 90px;
       }
-      .hero-slideshow {
-        padding: 0 1rem;
-        height: 50vh;
-      }
-      .hero-slide {
-        padding: 0 1rem;
-      }
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      .hero-content p {
-        font-size: 0.9rem;
-      }
-      .movies-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 0.8rem;
-      }
+
       .movie-poster {
-        height: 180px;
+        height: 135px;
       }
+
       .movie-title {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
+
       .movie-meta {
-        font-size: 0.7rem;
-      }
-      .view-count {
-        font-size: 0.65rem;
-      }
-      .time-indicator {
         font-size: 0.6rem;
       }
+
+      .view-count, .time-indicator {
+        font-size: 0.55rem;
+      }
+
       .overlay-title {
-        font-size: 0.85rem;
-      }
-      .genre-tag {
-        font-size: 0.6rem;
-        padding: 0.1rem 0.3rem;
-      }
-      .overlay-btn {
-        padding: 0.25rem 0.6rem;
         font-size: 0.7rem;
       }
-      .umusobanuzi {
-        top: 5px;
-        left: 5px;
-        padding: 0.1rem 0.2rem;
+
+      .genre-tag {
+        font-size: 0.5rem;
+      }
+
+      .overlay-btn {
         font-size: 0.6rem;
       }
-      .footer-content {
-        grid-template-columns: 1fr;
+
+      .umusobanuzi {
+        font-size: 0.5rem;
       }
-      .sidebar-content {
-        padding: 0.5rem;
-      }
-      .nav-item {
-        font-size: 1rem;
-      }
-      .theme-toggle {
-        font-size: 1rem;
-      }
-      .logo {
-        font-size: 1.2rem;
-      }
-      .nav-divider {
-        height: 16px;
-        margin: 0 0.3rem;
-      }
-      .genre-bar {
-        gap: 0.5rem;
-      }
-      .genre-bar a {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.7rem;
+    }
+
+    /* PC-specific styles */
+    @media (min-width: 769px) {
+      .donate-btn {
+        display: inline-block;
       }
     }
   </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DC1T9B6B9W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-DC1T9B6B9W');
-</script>
 <body>
-  <div class="sidebar">
-    <div class="sidebar-content">
-      <a href="pass.html" class="logo">KX</a>
-      <nav class="nav-menu">
-        <a href="#" class="nav-item active" data-page="home"><i class="fas fa-home"></i></a>
-        <hr class="nav-divider">
-        <a href="#" class="nav-item" data-page="new-releases"><i class="fas fa-film"></i></a>
-        <hr class="nav-divider">
-        <a href="#" class="nav-item" data-page="searching"><i class="fas fa-search"></i></a>
-        <hr class="nav-divider">
-        <a href="#" class="nav-item" data-page="profile"><i class="fas fa-user"></i></a>
-      </nav>
-      <hr class="nav-divider">
-      <div class="sidebar-footer">
-        <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+  <header>
+    <div class="header-top">
+      <div class="logo">KinaFlix</div>
+      <div class="auth-buttons" id="auth-buttons">
+        <button class="auth-btn login-btn">Login</button>
+        <button class="auth-btn register-btn">Register</button>
+        <button class="auth-btn donate-btn">Donate</button>
+      </div>
+      <button class="theme-toggle-header"><i class="fas fa-moon"></i></button>
+    </div>
+    <div class="header-bottom">
+      <div class="nav-items">
+        <a href="#" class="nav-item active" data-page="home">Home</a>
+        <a href="#" class="nav-item" data-page="new-releases">New Releases</a>
+        <a href="#" class="nav-item" data-page="for-you">For You</a>
+        <a href="#" class="nav-item" data-page="watchlist">Watchlist</a>
+        <a href="#" class="nav-item" data-page="history">History</a>
+        <a href="#" class="nav-item" data-page="searching">Search</a>
+        <a href="#" class="nav-item" data-page="profile">Profile</a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="main-content">
-    <header>
-      <div class="header-top">
-        <div class="header-image-box">
-          <img src="https://i.ibb.co/DDGR4b6Q/KINAFLIX-1.png" alt="Download app"
-               style="cursor:pointer;"
-               onclick="window.open('https://installkx.vercel.app/', '_blank')">
+  <main id="main-content"></main>
+
+  <div id="loading-spinner"><i class="fas fa-spinner fa-spin"></i></div>
+  <div id="watchlist-notifications"></div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#" class="footer-link" data-page="about">About</a>
+      <a href="#" class="footer-link" data-page="contact">Contact</a>
+      <a href="#" class="footer-link" data-page="privacy">Privacy Policy</a>
+    </div>
+    <p>&copy; 2025 KinaFlix. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-analytics.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
+    import { getFirestore, collection, doc, getDoc, getDocs, query, where, orderBy, limit, updateDoc, arrayUnion, arrayRemove, increment, startAfter } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBrRTdhrRTRL9ZfZpb-m-1XBmbDIsXF9k",
+      authDomain: "kinaflix.firebaseapp.com",
+      projectId: "kinaflix",
+      storageBucket: "kinaflix.appspot.com",
+      messagingSenderId: "318239806217",
+      appId: "1:318239806217:web:ee98bd97cd2a08ac3239d8",
+      measurementId: "G-DC1T9B6B9W"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const mainContent = document.getElementById('main-content');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+    const authButtons = document.getElementById('auth-buttons');
+    const watchlistNotifications = document.getElementById('watchlist-notifications');
+
+    let currentUser = null;
+    let movies = [];
+    let genres = [];
+    let featuredMovies = [];
+    let watchHistory = [];
+    let watchlist = [];
+    let lastViewTimestamps = {};
+    let allYears = [];
+    let slideInterval = null;
+    let themeToggleTimeout = null;
+    let lastAddedMovieId = null;
+
+    const cache = {
+      movies: null,
+      genres: null,
+      featured: null,
+      expiry: 5 * 60 * 1000
+    };
+
+    // No Internet Overlay
+    const noInternetOverlay = document.createElement('div');
+    noInternetOverlay.id = 'no-internet-overlay';
+    noInternetOverlay.style.cssText = `
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+    `;
+    noInternetOverlay.innerHTML = `
+      <i class="fas fa-exclamation-triangle" style="font-size: 48px; margin-bottom: 20px;"></i>
+      <h2 style="color: white;">Connection Error</h2>
+      <p style="color: white;">Remember to support btem@fficial</p>
+    `;
+    document.body.appendChild(noInternetOverlay);
+
+    // Scroll handling for mobile header
+    let lastScrollY = 0;
+    let ticking = false;
+
+    function handleScroll() {
+      if (window.innerWidth <= 768) {
+        const headerBottom = document.querySelector('.header-bottom');
+        const currentScrollY = window.scrollY;
+
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+              headerBottom.classList.add('hidden');
+            } else {
+              headerBottom.classList.remove('hidden');
+            }
+            lastScrollY = currentScrollY;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+    }
+
+    // Enable smooth touch scrolling for movie grids on mobile
+    function enableTouchScrolling() {
+      const movieGrids = document.querySelectorAll('.movies-grid');
+      movieGrids.forEach(grid => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        grid.addEventListener('touchstart', (e) => {
+          isDown = true;
+          startX = e.touches[0].pageX - grid.offsetLeft;
+          scrollLeft = grid.scrollLeft;
+        });
+
+        grid.addEventListener('touchend', () => {
+          isDown = false;
+        });
+
+        grid.addEventListener('touchmove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.touches[0].pageX - grid.offsetLeft;
+          const walk = (x - startX) * 2;
+          grid.scrollLeft = scrollLeft - walk;
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initAuth();
+      initUI();
+      checkInternetConnection();
+      setInterval(checkInternetConnection, 5000);
+      loadHomePage();
+      loadWatchHistoryFromCookies();
+      setupIntersectionObserver();
+      window.addEventListener('scroll', handleScroll);
+    });
+
+    function initAuth() {
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          currentUser = user;
+          updateAuthUI(user);
+          await loadUserData(user.uid);
+          if (watchlist.length > 0) {
+            showWatchlistNotifications();
+          }
+        } else {
+          currentUser = null;
+          updateAuthUI(null);
+        }
+      });
+    }
+
+    function initUI() {
+      const themeToggles = document.querySelectorAll('.theme-toggle, .theme-toggle-header');
+      themeToggles.forEach(toggle => toggle.addEventListener('click', () => {
+        clearTimeout(themeToggleTimeout);
+        themeToggleTimeout = setTimeout(toggleTheme, 100);
+      }));
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        document.querySelectorAll('.theme-toggle i, .theme-toggle-header i').forEach(icon => {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('.nav-item, .footer-link, .genre-bar a, .donate-btn');
+        if (link) {
+          if (link.classList.contains('genre-bar')) {
+            const genre = link.textContent.trim();
+            localStorage.setItem('selectedGenre', genre);
+            window.location.href = 'genre.html';
+            return;
+          }
+          if (link.classList.contains('donate-btn')) {
+            window.location.href = 'donate.html'; // Adjust to your donation page
+            return;
+          }
+          e.preventDefault();
+          const page = link.getAttribute('data-page');
+          navigateTo(page);
+          if (link.classList.contains('nav-item')) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    }
+
+    async function showWatchlistNotifications() {
+      if (!currentUser || watchlist.length === 0) return;
+      
+      watchlistNotifications.innerHTML = '';
+      const uniqueMovies = new Map();
+      const notificationPromises = watchlist.map(movieId => 
+        getDoc(doc(db, 'movies', movieId)).then(docSnap => 
+          docSnap.exists() ? { 
+            id: docSnap.id, 
+            title: docSnap.data().title,
+            coverImageUrl: docSnap.data().coverImageUrl
+          } : null
+        )
+      );
+      
+      const notificationMovies = (await Promise.all(notificationPromises)).filter(Boolean);
+      notificationMovies.forEach(movie => uniqueMovies.set(movie.id, movie));
+      
+      for (const movie of uniqueMovies.values()) {
+        const notification = createWatchlistNotification(movie);
+        watchlistNotifications.appendChild(notification);
+        setTimeout(() => notification.classList.add('show'), 50);
+      }
+    }
+
+    function createWatchlistNotification(movie) {
+      const notification = document.createElement('div');
+      notification.className = 'watchlist-notification';
+      notification.dataset.movieId = movie.id;
+      
+      notification.innerHTML = `
+        <img src="${movie.coverImageUrl || 'https://via.placeholder.com/50x70?text=No+Image'}" 
+             alt="${movie.title}" class="watchlist-notification-poster">
+        <div class="watchlist-notification-content">
+          <div class="watchlist-notification-title">${movie.title}</div>
+          <div class="watchlist-notification-actions">
+            <button class="watchlist-notification-btn remove" title="Remove from watchlist">
+              <i class="fas fa-trash"></i> Remove
+            </button>
+            <button class="watchlist-notification-btn close" title="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
-        <div class="header-text" onclick="window.location.href='https://right-coyote.static.domains/'"><i>Click to see</i><br>CAMAVINGA</div>
-        <button class="theme-toggle-header"><i class="fas fa-moon"></i></button>
-      </div>
-      <div class="header-bottom">
-        <a href="https://chat.whatsapp.com/LE4EmPz8OZA0Pj5XejYv8c" target="_blank" class="whatsapp-btn">
-          <i class="fab fa-whatsapp"></i> JOIN US
-        </a>
-        <div class="auth-buttons" id="auth-buttons">
+      `;
+      
+      notification.querySelector('.close').addEventListener('click', () => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      });
+      
+      notification.querySelector('.remove').addEventListener('click', async () => {
+        try {
+          const userRef = doc(db, 'users', currentUser.uid);
+          await updateDoc(userRef, { watchlist: arrayRemove(movie.id) });
+          watchlist = watchlist.filter(id => id !== movie.id);
+          showToast('Removed from watchlist', 'success');
+          notification.classList.remove('show');
+          setTimeout(() => notification.remove(), 300);
+          watchlistNotifications.innerHTML = '';
+          if (watchlist.length > 0) showWatchlistNotifications();
+        } catch (error) {
+          showToast('Error removing from watchlist: ' + error.message, 'error');
+        }
+      });
+      
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.classList.remove('show');
+          setTimeout(() => notification.remove(), 300);
+        }
+      }, 8000);
+      
+      return notification;
+    }
+
+    function navigateTo(page) {
+      showLoading();
+      switch(page) {
+        case 'home':
+          loadHomePage();
+          break;
+        case 'new-releases':
+          loadAllMovies('latest');
+          break;
+        case 'searching':
+          window.location.href = 'search.html';
+          break;
+        case 'profile':
+          if (currentUser) {
+            window.location.href = 'profile.html';
+          } else {
+            window.location.href = 'login.html';
+          }
+          break;
+        case 'for-you':
+          loadForYou();
+          break;
+        case 'watchlist':
+          loadWatchlist();
+          break;
+        case 'history':
+          loadHistory();
+          break;
+        default:
+          loadHomePage();
+      }
+    }
+
+    function updateAuthUI(user) {
+      if (user) {
+        authButtons.innerHTML = `
+          <button class="auth-btn profile-btn"><i class="fas fa-user"></i> ${user.displayName || 'Profile'}</button>
+          <button class="auth-btn logout-btn">Logout</button>
+          <button class="auth-btn donate-btn">Donate</button>
+        `;
+        document.querySelector('.logout-btn').addEventListener('click', () => {
+          signOut(auth).then(() => showToast('Logged out successfully', 'success')).catch(error => showToast(error.message, 'error'));
+        });
+        document.querySelector('.profile-btn').addEventListener('click', () => window.location.href = 'profile.html');
+        document.querySelector('.donate-btn').addEventListener('click', () => window.location.href = 'donate.html');
+      } else {
+        authButtons.innerHTML = `
           <button class="auth-btn login-btn">Login</button>
           <button class="auth-btn register-btn">Register</button>
-        </div>
-      </div>
-    </header>
-    
-    <main id="main-content">
-      <div class="spinner active" id="loading-spinner"></div>
-    </main>
-
-    <footer>
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Navigation</h3>
-          <ul>
-            <li><a href="#" class="footer-link" data-page="for-you">For You</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="policy.html">Policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Account</h3>
-          <ul>
-            <li><a href="#" class="footer-link" data-page="history">History</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Connect With Us</h3>
-          <div class="social-links">
-            <a href="https://www.youtube.com/@kinaflix"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/kinaflix/"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 KINAFLIX | Made by btem@fficial | All rights reserved.</p>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Watchlist Notifications Container -->
-  <div class="watchlist-notification-container" id="watchlist-notifications"></div>
-
-  <script defer type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-analytics.js";
-import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
-import { getFirestore, collection, doc, getDoc, getDocs, query, where, orderBy, limit, updateDoc, arrayUnion, arrayRemove, increment, startAfter } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCBrRTdhrRTRL9ZfZpb-m-1XBmbDIsXF9k",
-  authDomain: "kinaflix.firebaseapp.com",
-  projectId: "kinaflix",
-  storageBucket: "kinaflix.appspot.com",
-  messagingSenderId: "318239806217",
-  appId: "1:318239806217:web:ee98bd97cd2a08ac3239d8",
-  measurementId: "G-DC1T9B6B9W"
-};
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-const mainContent = document.getElementById('main-content');
-const loadingSpinner = document.getElementById('loading-spinner');
-const toast = document.createElement('div');
-toast.className = 'toast';
-document.body.appendChild(toast);
-const authButtons = document.getElementById('auth-buttons');
-const watchlistNotifications = document.getElementById('watchlist-notifications');
-
-let currentUser = null;
-let movies = [];
-let genres = [];
-let featuredMovies = [];
-let watchHistory = [];
-let watchlist = [];
-let lastViewTimestamps = {};
-let allYears = [];
-let slideInterval = null;
-let themeToggleTimeout = null;
-let lastAddedMovieId = null;
-
-const cache = {
-  movies: null,
-  genres: null,
-  featured: null,
-  expiry: 5 * 60 * 1000
-};
-
-// No Internet Overlay
-const noInternetOverlay = document.createElement('div');
-noInternetOverlay.id = 'no-internet-overlay';
-noInternetOverlay.style.cssText = `
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
-  text-align: center;
-`;
-noInternetOverlay.innerHTML = `
-  <i class="fas fa-exclamation-triangle" style="font-size: 48px; margin-bottom: 20px;"></i>
-  <h2 style="color: white;">Connection Error</h2>
-  <p style="color: white;">Remember to support btem@fficial</p>
-`;
-document.body.appendChild(noInternetOverlay);
-
-// Scroll handling for mobile header
-let lastScrollY = 0;
-let ticking = false;
-
-function handleScroll() {
-  if (window.innerWidth <= 768) {
-    const headerBottom = document.querySelector('.header-bottom');
-    const currentScrollY = window.scrollY;
-
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        if (currentScrollY > lastScrollY && currentScrollY > 50) {
-          headerBottom.classList.add('hidden');
-        } else {
-          headerBottom.classList.remove('hidden');
-        }
-        lastScrollY = currentScrollY;
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  initAuth();
-  initUI();
-  checkInternetConnection();
-  setInterval(checkInternetConnection, 5000);
-  loadHomePage();
-  loadWatchHistoryFromCookies();
-  setupIntersectionObserver();
-  window.addEventListener('scroll', handleScroll);
-});
-
-function initAuth() {
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      currentUser = user;
-      updateAuthUI(user);
-      await loadUserData(user.uid);
-      if (watchlist.length > 0) {
-        showWatchlistNotifications();
-      }
-    } else {
-      currentUser = null;
-      updateAuthUI(null);
-    }
-  });
-}
-
-function initUI() {
-  const themeToggles = document.querySelectorAll('.theme-toggle, .theme-toggle-header');
-  themeToggles.forEach(toggle => toggle.addEventListener('click', () => {
-    clearTimeout(themeToggleTimeout);
-    themeToggleTimeout = setTimeout(toggleTheme, 100);
-  }));
-
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-    document.querySelectorAll('.theme-toggle i, .theme-toggle-header i').forEach(icon => {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    });
-  }
-
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('.nav-item, .footer-link, .genre-bar a');
-    if (link) {
-      if (link.classList.contains('genre-bar')) {
-        const genre = link.textContent.trim();
-        localStorage.setItem('selectedGenre', genre);
-        window.location.href = 'genre.html';
-        return;
-      }
-      e.preventDefault();
-      const page = link.getAttribute('data-page');
-      navigateTo(page);
-      if (link.classList.contains('nav-item')) {
-        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-        link.classList.add('active');
+          <button class="auth-btn donate-btn">Donate</button>
+        `;
+        document.querySelector('.login-btn').addEventListener('click', () => window.location.href = 'login.html');
+        document.querySelector('.register-btn').addEventListener('click', () => window.location.href = 'register.html');
+        document.querySelector('.donate-btn').addEventListener('click', () => window.location.href = 'donate.html');
       }
     }
-  });
-}
 
-async function showWatchlistNotifications() {
-  if (!currentUser || watchlist.length === 0) return;
-  
-  watchlistNotifications.innerHTML = '';
-  const uniqueMovies = new Map();
-  const notificationPromises = watchlist.map(movieId => 
-    getDoc(doc(db, 'movies', movieId)).then(docSnap => 
-      docSnap.exists() ? { 
-        id: docSnap.id, 
-        title: docSnap.data().title,
-        coverImageUrl: docSnap.data().coverImageUrl
-      } : null
-    )
-  );
-  
-  const notificationMovies = (await Promise.all(notificationPromises)).filter(Boolean);
-  notificationMovies.forEach(movie => uniqueMovies.set(movie.id, movie));
-  
-  for (const movie of uniqueMovies.values()) {
-    const notification = createWatchlistNotification(movie);
-    watchlistNotifications.appendChild(notification);
-    setTimeout(() => notification.classList.add('show'), 50);
-  }
-}
-
-function createWatchlistNotification(movie) {
-  const notification = document.createElement('div');
-  notification.className = 'watchlist-notification';
-  notification.dataset.movieId = movie.id;
-  
-  notification.innerHTML = `
-    <img src="${movie.coverImageUrl || 'https://via.placeholder.com/50x70?text=No+Image'}" 
-         alt="${movie.title}" class="watchlist-notification-poster">
-    <div class="watchlist-notification-content">
-      <div class="watchlist-notification-title">${movie.title}</div>
-      <div class="watchlist-notification-actions">
-        <button class="watchlist-notification-btn remove" title="Remove from watchlist">
-          <i class="fas fa-trash"></i> Remove
-        </button>
-        <button class="watchlist-notification-btn close" title="Close">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-    </div>
-  `;
-  
-  notification.querySelector('.close').addEventListener('click', () => {
-    notification.classList.remove('show');
-    setTimeout(() => notification.remove(), 300);
-  });
-  
-  notification.querySelector('.remove').addEventListener('click', async () => {
-    try {
-      const userRef = doc(db, 'users', currentUser.uid);
-      await updateDoc(userRef, { watchlist: arrayRemove(movie.id) });
-      watchlist = watchlist.filter(id => id !== movie.id);
-      showToast('Removed from watchlist', 'success');
-      notification.classList.remove('show');
-      setTimeout(() => notification.remove(), 300);
-      watchlistNotifications.innerHTML = '';
-      if (watchlist.length > 0) showWatchlistNotifications();
-    } catch (error) {
-      showToast('Error removing from watchlist: ' + error.message, 'error');
-    }
-  });
-  
-  setTimeout(() => {
-    if (notification.parentNode) {
-      notification.classList.remove('show');
-      setTimeout(() => notification.remove(), 300);
-    }
-  }, 8000);
-  
-  return notification;
-}
-
-function navigateTo(page) {
-  showLoading();
-  switch(page) {
-    case 'home':
-      loadHomePage();
-      break;
-    case 'new-releases':
-      loadAllMovies('latest');
-      break;
-    case 'searching':
-      window.location.href = 'search.html';
-      break;
-    case 'profile':
-      if (currentUser) {
-        window.location.href = 'profile.html';
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+      const icons = document.querySelectorAll('.theme-toggle i, .theme-toggle-header i');
+      if (document.body.classList.contains('light-mode')) {
+        icons.forEach(icon => {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        });
+        localStorage.setItem('theme', 'light');
       } else {
-        window.location.href = 'login.html';
+        icons.forEach(icon => {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        });
+        localStorage.setItem('theme', 'dark');
       }
-      break;
-    case 'for-you':
-      loadForYou();
-      break;
-    case 'watchlist':
-      loadWatchlist();
-      break;
-    case 'history':
-      loadHistory();
-      break;
-    default:
-      loadHomePage();
-  }
-}
+    }
 
-function updateAuthUI(user) {
-  if (user) {
-    authButtons.innerHTML = `
-      <button class="auth-btn profile-btn"><i class="fas fa-user"></i> ${user.displayName || 'Profile'}</button>
-      <button class="auth-btn logout-btn">Logout</button>
-    `;
-    document.querySelector('.logout-btn').addEventListener('click', () => {
-      signOut(auth).then(() => showToast('Logged out successfully', 'success')).catch(error => showToast(error.message, 'error'));
-    });
-    document.querySelector('.profile-btn').addEventListener('click', () => window.location.href = 'profile.html');
-  } else {
-    authButtons.innerHTML = `
-      <button class="auth-btn login-btn">Login</button>
-      <button class="auth-btn register-btn">Register</button>
-    `;
-    document.querySelector('.login-btn').addEventListener('click', () => window.location.href = 'login.html');
-    document.querySelector('.register-btn').addEventListener('click', () => window.location.href = 'register.html');
-  }
-}
+    function showToast(message, type = 'info') {
+      toast.textContent = message;
+      toast.className = 'toast';
+      toast.classList.add(type, 'show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
 
-function toggleTheme() {
-  document.body.classList.toggle('light-mode');
-  const icons = document.querySelectorAll('.theme-toggle i, .theme-toggle-header i');
-  if (document.body.classList.contains('light-mode')) {
-    icons.forEach(icon => {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    });
-    localStorage.setItem('theme', 'light');
-  } else {
-    icons.forEach(icon => {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-    });
-    localStorage.setItem('theme', 'dark');
-  }
-}
+    async function loadHomePage() {
+      showLoading();
+      try {
+        const [moviesData, genresData, featuredData, newestData] = await Promise.all([
+          getCachedData('movies', fetchMovies),
+          getCachedData('genres', fetchGenres),
+          getCachedData('featured', fetchFeaturedMovies),
+          fetchNewestMovies()
+        ]);
+        movies = moviesData;
+        genres = genresData;
+        featuredMovies = featuredData;
+        allYears = [...new Set(movies.map(movie => movie.releaseYear))].sort((a, b) => b - a);
+        renderHomePage(newestData);
+        startSlideshow();
+        enableTouchScrolling();
+        hideLoading();
+      } catch (error) {
+        showToast('Error loading content: ' + error.message, 'error');
+        hideLoading();
+      }
+    }
 
-function showToast(message, type = 'info') {
-  toast.textContent = message;
-  toast.className = 'toast';
-  toast.classList.add(type, 'show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
-}
-
-async function loadHomePage() {
-  showLoading();
-  try {
-    const [moviesData, genresData, featuredData, newestData] = await Promise.all([
-      getCachedData('movies', fetchMovies),
-      getCachedData('genres', fetchGenres),
-      getCachedData('featured', fetchFeaturedMovies),
-      fetchNewestMovies()
-    ]);
-    movies = moviesData;
-    genres = genresData;
-    featuredMovies = featuredData;
-    allYears = [...new Set(movies.map(movie => movie.releaseYear))].sort((a, b) => b - a);
-    renderHomePage(newestData);
-    startSlideshow();
-    hideLoading();
-  } catch (error) {
-    showToast('Error loading content: ' + error.message, 'error');
-    hideLoading();
-  }
-}
-
-async function getCachedData(key, fetchFn) {
-  const cached = sessionStorage.getItem(key);
-  if (cached) {
-    const { data, timestamp } = JSON.parse(cached);
-    if (Date.now() - timestamp < cache.expiry) {
+    async function getCachedData(key, fetchFn) {
+      const cached = sessionStorage.getItem(key);
+      if (cached) {
+        const { data, timestamp } = JSON.parse(cached);
+        if (Date.now() - timestamp < cache.expiry) {
+          return data;
+        }
+      }
+      const data = await fetchFn();
+      sessionStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+      cache[key] = data;
       return data;
     }
-  }
-  const data = await fetchFn();
-  sessionStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
-  cache[key] = data;
-  return data;
-}
 
-async function fetchMovies() {
-  const q = query(collection(db, 'movies'), orderBy('releaseYear', 'desc'));
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs
-    .map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-      genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
-      releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
-      views: typeof doc.data().views === 'number' ? doc.data().views : 0,
-      timestamp: doc.data().dateAdded?.toDate() || new Date(),
-      seriesId: doc.data().seriesId || null
-    }))
-    .filter(movie => movie.title);
-}
-
-async function fetchGenres() {
-  const q = query(collection(db, 'genres'), orderBy('name'));
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(doc => doc.data().name);
-}
-
-async function fetchFeaturedMovies() {
-  const q = query(collection(db, 'movies'), orderBy('releaseYear', 'desc'), limit(5));
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(doc => ({ 
-    id: doc.id, 
-    ...doc.data(),
-    genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
-    releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
-    timestamp: doc.data().dateAdded?.toDate() || new Date()
-  }));
-}
-
-async function fetchNewestMovies() {
-  let q = query(collection(db, 'movies'), orderBy('dateAdded', 'desc'), limit(16));
-  let querySnapshot = await getDocs(q);
-  let movies = querySnapshot.docs.map(doc => ({
-    id: doc.id,
-    ...doc.data(),
-    genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
-    releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
-    views: typeof doc.data().views === 'number' ? doc.data().views : 0,
-    timestamp: doc.data().dateAdded?.toDate() || new Date(),
-    seriesId: doc.data().seriesId || null
-  }));
-
-  const seriesGroups = new Map();
-  for (const movie of movies) {
-    const seriesKey = movie.seriesId || getTitlePrefix(movie.title);
-    if (!seriesGroups.has(seriesKey)) {
-      seriesGroups.set(seriesKey, []);
+    async function fetchMovies() {
+      const q = query(collection(db, 'movies'), orderBy('releaseYear', 'desc'));
+      const querySnapshot = await getDocs(q);
+      return querySnapshot.docs
+        .map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+          genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
+          releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
+          views: typeof doc.data().views === 'number' ? doc.data().views : 0,
+          timestamp: doc.data().dateAdded?.toDate() || new Date(),
+          seriesId: doc.data().seriesId || null
+        }))
+        .filter(movie => movie.title);
     }
-    seriesGroups.get(seriesKey).push(movie);
-  }
 
-  const uniqueMovies = [];
-  for (const group of seriesGroups.values()) {
-    const selectedMovies = [];
-    for (let i = 0; i < Math.min(3, group.length); i++) {
-      const randomIndex = Math.floor(Math.random() * group.length);
-      selectedMovies.push(group[randomIndex]);
-      group.splice(randomIndex, 1);
+    async function fetchGenres() {
+      const q = query(collection(db, 'genres'), orderBy('name'));
+      const querySnapshot = await getDocs(q);
+      return querySnapshot.docs.map(doc => doc.data().name);
     }
-    uniqueMovies.push(...selectedMovies);
-    if (uniqueMovies.length >= 10) break;
-  }
 
-  while (uniqueMovies.length < 10 && querySnapshot.docs.length >= 16) {
-    q = query(
-      collection(db, 'movies'),
-      orderBy('dateAdded', 'desc'),
-      startAfter(querySnapshot.docs[querySnapshot.docs.length - 1]),
-      limit(16)
-    );
-    querySnapshot = await getDocs(q);
-    const moreMovies = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-      genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
-      releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
-      views: typeof doc.data().views === 'number' ? doc.data().views : 0,
-      timestamp: doc.data().dateAdded?.toDate() || new Date(),
-      seriesId: doc.data().seriesId || null
-    }));
-    for (const movie of moreMovies) {
-      const seriesKey = movie.seriesId || getTitlePrefix(movie.title);
-      if (!seriesGroups.has(seriesKey)) {
-        seriesGroups.set(seriesKey, []);
-      }
-      seriesGroups.get(seriesKey).push(movie);
-      if (!uniqueMovies.some(m => (m.seriesId || getTitlePrefix(m.title)) === seriesKey)) {
-        const selectedMovies = [];
-        for (let i = 0; i < Math.min(3, seriesGroups.get(seriesKey).length); i++) {
-          const randomIndex = Math.floor(Math.random() * seriesGroups.get(seriesKey).length);
-          selectedMovies.push(seriesGroups.get(seriesKey)[randomIndex]);
-          seriesGroups.get(seriesKey).splice(randomIndex, 1);
-        }
-        uniqueMovies.push(...selectedMovies);
-      }
-      if (uniqueMovies.length >= 10) break;
+    async function fetchFeaturedMovies() {
+      const q = query(collection(db, 'movies'), orderBy('releaseYear', 'desc'), limit(5));
+      const querySnapshot = await getDocs(q);
+      return querySnapshot.docs.map(doc => ({ 
+        id: doc.id, 
+        ...doc.data(),
+        genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
+        releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
+        timestamp: doc.data().dateAdded?.toDate() || new Date()
+      }));
     }
-  }
 
-  return uniqueMovies.slice(0, 10);
-}
+    async function fetchNewestMovies() {
+      let q = query(collection(db, 'movies'), orderBy('dateAdded', 'desc'), limit(16));
+      let querySnapshot = await getDocs(q);
+      let movies = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+        genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
+        releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
+        views: typeof doc.data().views === 'number' ? doc.data().views : 0,
+        timestamp: doc.data().dateAdded?.toDate() || new Date(),
+        seriesId: doc.data().seriesId || null
+      }));
 
-function getTitlePrefix(title) {
-  const words = title.split(' ').slice(0, Math.ceil(title.split(' ').length * 0.7));
-  return words.join(' ').toLowerCase().replace(/[^a-z0-9]/g, '');
-}
-
-function startSlideshow() {
-  if (!featuredMovies.length) return;
-  let currentSlide = 0;
-  
-  function showSlide(index) {
-    const slides = document.querySelectorAll('.hero-slide');
-    if (!slides.length) return;
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    currentSlide = index;
-  }
-
-  function nextSlide() {
-    requestAnimationFrame(() => {
-      const nextIndex = (currentSlide + 1) % featuredMovies.length;
-      showSlide(nextIndex);
-    });
-  }
-
-  showSlide(0);
-  slideInterval = setInterval(nextSlide, 15000);
-
-  document.querySelectorAll('.hero-slide').forEach(slide => {
-    slide.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    slide.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 15000));
-  });
-}
-
-async function renderHomePage(newestMovies) {
-  let sortField = 'releaseYear';
-  let sortOrder = 'desc';
-  if (currentUser) {
-    const userRef = doc(db, 'users', currentUser.uid);
-    const userSnap = await getDoc(userRef);
-    if (userSnap.exists()) {
-      const preferences = userSnap.data().displayPreferences || {};
-      sortField = preferences.sortField || 'releaseYear';
-      sortOrder = preferences.sortOrder || 'desc';
-    }
-  }
-
-  let html = featuredMovies.length > 0 ? `
-    <section class="hero-slideshow">
-      ${featuredMovies.map(movie => `
-        <div class="hero-slide" style="--hero-background: url('${movie.coverImageUrl || 'https://via.placeholder.com/1920x1080?text=Featured+Movie'}')">
-          <div class="hero-content">
-            <h1>${movie.title}</h1>
-            <p>${movie.description?.substring(0, 150) || 'No description available.'}...</p>
-            <div class="hero-buttons">
-              <button class="watch-btn" data-movie-id="${movie.id}"><i class="fas fa-play"></i> Watch Now</button>
-              <button class="info-btn" data-movie-id="${movie.id}"><i class="fas fa-info-circle"></i> More Info</button>
-            </div>
-          </div>
-        </div>
-      `).join('')}
-    </section>
-  ` : '';
-
-  if (newestMovies && newestMovies.length > 0) {
-    html += `
-      <section class="section">
-        <h2 class="section-title">Newest Releases <a href="#" class="view-all" data-sort="newest">See All</a></h2>
-        <div class="movies-grid">
-          ${newestMovies.map(movie => renderMovieCard(movie)).slice(0, 10).join('')}
-        </div>
-      </section>
-    `;
-  }
-
-  if (watchHistory.length > 0) {
-    const forYouMovies = await loadForYouMovies();
-    if (forYouMovies.length > 0) {
-      html += `
-        <section class="section">
-          <h2 class="section-title">For You <small>(Based on your preferences)</small></h2>
-          <div class="movies-grid">
-            ${forYouMovies.map(movie => renderMovieCard(movie)).slice(0, 12).join('')}
-          </div>
-        </section>
-      `;
-    }
-  }
-
-  if (movies.length > 0) {
-    const popularMovies = sortMovies([...movies], 'views', 'desc').slice(0, 10);
-    html += `
-      <section class="section">
-        <h2 class="section-title">Popular Movies <a href="#" class="view-all" data-sort="popular">See All</a></h2>
-        <div class="movies-grid">
-          ${popularMovies.map(movie => renderMovieCard(movie)).join('')}
-        </div>
-      </section>
-    `;
-  }
-
-  html += `
-    <div class="genre-bar">
-      ${['<b>Action</b>', '<b>Adventure</b>', '<b>Animation</b>', '<b>Comedy</b>', '<b>Crime</b>', '<b>Drama</b>', '<b>Horror</b>', '<b>Romance</b>', '<b>Adult</b>', '<b>War</b>', '<b>Thriller</b>', '<b>Indian</b>', '<b>Sci-Fi</b>', '<b>Sport</b>'].map(genre => `
-        <a href="#" class="genre-bar" data-genre="${genre.replace(/<b>|<\/b>/g, '')}">${genre}</a>
-      `).join('')}
-    </div>
-  `;
-
-  if (movies.length > 0) {
-    const allMovies = sortMovies([...movies], 'releaseYear', 'desc');
-    html += `
-      <section class="section">
-        <h2 class="section-title">All Movies</h2>
-        <div class="movies-grid">
-          ${allMovies.map(movie => renderMovieCard(movie)).join('')}
-        </div>
-      </section>
-    `;
-  }
-
-  mainContent.innerHTML = html;
-  attachMovieCardEvents();
-  document.querySelectorAll('.view-all').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const sort = link.getAttribute('data-sort');
-      const genre = link.getAttribute('data-genre');
-      if (genre) loadMoviesByGenre(genre);
-      else if (sort) loadAllMovies(sort);
-    });
-  });
-}
-
-async function loadForYouMovies() {
-  if (!currentUser || watchHistory.length === 0) {
-    return sortMovies([...movies], 'views', 'desc').slice(0, 12);
-  }
-
-  const watchedIds = new Set(watchHistory);
-  const favoriteGenre = getFavoriteGenre();
-  let candidateMovies = movies.filter(movie => 
-    !watchedIds.has(movie.id) && 
-    Array.isArray(movie.genres) && 
-    movie.genres.includes(favoriteGenre)
-  );
-
-  if (candidateMovies.length < 12) {
-    const additionalMovies = movies.filter(movie => 
-      !watchedIds.has(movie.id) && 
-      Array.isArray(movie.genres) && 
-      movie.genres.some(g => g !== favoriteGenre)
-    );
-    candidateMovies = [...candidateMovies, ...additionalMovies];
-  }
-
-  candidateMovies = sortMovies(candidateMovies, 'views', 'desc');
-  return candidateMovies.slice(0, 12);
-}
-
-function sortMovies(movies, field, order) {
-  const sorted = [...movies];
-  const isAsc = order === 'asc';
-  switch (field) {
-    case 'title': sorted.sort((a, b) => isAsc ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)); break;
-    case 'rating': sorted.sort((a, b) => isAsc ? (a.rating || 0) - (b.rating || 0) : (b.rating || 0) - (a.rating || 0)); break;
-    case 'releaseYear': sorted.sort((a, b) => isAsc ? (a.releaseYear || 0) - (b.releaseYear || 0) : (b.releaseYear || 0) - (a.releaseYear || 0)); break;
-    case 'views': sorted.sort((a, b) => isAsc ? (a.views || 0) - (b.views || 0) : (b.views || 0) - (a.views || 0)); break;
-    case 'dateAdded': sorted.sort((a, b) => isAsc ? a.timestamp - b.timestamp : b.timestamp - a.timestamp); break;
-    default: sorted.sort((a, b) => isAsc ? (a.releaseYear || 0) - (b.releaseYear || 0) : (b.releaseYear || 0) - (a.releaseYear || 0));
-  }
-  return sorted;
-}
-
-function formatTimeSince(timestamp) {
-  const now = new Date();
-  const seconds = Math.floor((now - timestamp) / 1000);
-  let interval = Math.floor(seconds / 31536000);
-  if (interval >= 1) return `${interval} year${interval === 1 ? '' : 's'} ago`;
-  interval = Math.floor(seconds / 2592000);
-  if (interval >= 1) return `${interval} month${interval === 1 ? '' : 's'} ago`;
-  interval = Math.floor(seconds / 86400);
-  if (interval >= 1) return `${interval} day${interval === 1 ? '' : 's'} ago`;
-  interval = Math.floor(seconds / 3600);
-  if (interval >= 1) return `${interval} hour${interval === 1 ? '' : 's'} ago`;
-  interval = Math.floor(seconds / 60);
-  if (interval >= 1) return `${interval} minute${interval === 1 ? '' : 's'} ago`;
-  return `${Math.floor(seconds)} second${seconds === 1 ? '' : 's'} ago`;
-}
-
-function getFavoriteGenre() {
-  const genreCounts = {};
-  let maxCount = 0;
-  let favoriteGenre = genres[0] || 'Action';
-  watchHistory.forEach(movieId => {
-    const movie = movies.find(m => m.id === movieId);
-    if (movie && Array.isArray(movie.genres)) {
-      movie.genres.forEach(genre => {
-        genreCounts[genre] = (genreCounts[genre] || 0) + 1;
-        if (genreCounts[genre] > maxCount) {
-          maxCount = genreCounts[genre];
-          favoriteGenre = genre;
-        }
-      });
-    }
-  });
-  return favoriteGenre;
-}
-
-async function loadForYou() {
-  showLoading();
-  try {
-    const forYouMovies = await loadForYouMovies();
-    renderMovieList(forYouMovies, 'For You (Recommended)');
-    hideLoading();
-  } catch (error) {
-    showToast('Error loading recommendations: ' + error.message, 'error');
-    hideLoading();
-  }
-}
-
-function renderMovieCard(movie) {
-  const inWatchlist = currentUser && watchlist.includes(movie.id);
-  const timeSince = formatTimeSince(movie.timestamp);
-  return `
-    <div class="movie-card" data-movie-id="${movie.id}">
-      ${movie.umusobanuzi ? `<span class="umusobanuzi">${movie.umusobanuzi}</span>` : ''}
-      <img src="${movie.coverImageUrl || 'https://via.placeholder.com/300x450?text=No+Image'}" 
-           alt="${movie.title}" class="movie-poster" loading="lazy">
-      <div class="movie-info">
-        <h3 class="movie-title">${movie.title} (${movie.releaseYear || 'N/A'})</h3>
-        <div class="movie-meta">
-          <span>${movie.releaseYear || 'N/A'}</span>
-          ${movie.rating ? `<span class="movie-rating"><i class="fas fa-star"></i> ${movie.rating}</span>` : ''}
-        </div>
-        ${movie.views ? `<div class="view-count"><i class="fas fa-eye"></i> ${movie.views}</div>` : ''}
-        <div class="time-indicator">${timeSince}</div>
-      </div>
-      <div class="movie-overlay">
-        <h3 class="overlay-title">${movie.title}</h3>
-        ${Array.isArray(movie.genres) && movie.genres.length ? `
-          <div class="overlay-genres">
-            ${movie.genres.map(genre => `<span class="genre-tag">${genre}</span>`).join('')}
-          </div>
-        ` : ''}
-        <p>${movie.description?.substring(0, 80) || 'No description available'}...</p>
-        <button class="overlay-btn" data-movie-id="${movie.id}"><i class="fas fa-play"></i> Watch Now</button>
-        ${currentUser ? `
-          <button class="overlay-btn watchlist-btn ${inWatchlist ? 'in-watchlist' : ''}" 
-                  data-movie-id="${movie.id}">
-            <i class="fas ${inWatchlist ? 'fa-check' : 'fa-plus'}"></i> 
-            ${inWatchlist ? 'In Watchlist' : 'Add to Watchlist'}
-          </button>
-        ` : ''}
-      </div>
-    </div>
-  `;
-}
-
-function attachMovieCardEvents() {
-  mainContent.addEventListener('click', async (e) => {
-    const target = e.target.closest('.movie-card, .watch-btn, .info-btn, .overlay-btn:not(.watchlist-btn), .watchlist-btn');
-    if (!target) return;
-    if (target.classList.contains('watchlist-btn')) {
-      e.stopPropagation();
-      const movieId = target.getAttribute('data-movie-id');
-      if (!currentUser) {
-        showToast('Please login to use watchlist', 'error');
-        window.location.href = 'login.html';
-        return;
-      }
-      try {
-        const userRef = doc(db, 'users', currentUser.uid);
-        if (watchlist.includes(movieId)) {
-          await updateDoc(userRef, { watchlist: arrayRemove(movieId) });
-          watchlist = watchlist.filter(id => id !== movieId);
-          showToast('Removed from watchlist', 'success');
-          target.classList.remove('in-watchlist');
-          target.innerHTML = `<i class="fas fa-plus"></i> Add to Watchlist`;
-        } else {
-          await updateDoc(userRef, { watchlist: arrayUnion(movieId) });
-          watchlist.push(movieId);
-          showToast('Added to watchlist', 'success');
-          target.classList.add('in-watchlist');
-          target.innerHTML = `<i class="fas fa-check"></i> In Watchlist`;
-          
-          if (movieId !== lastAddedMovieId) {
-            lastAddedMovieId = movieId;
-            const movieDoc = await getDoc(doc(db, 'movies', movieId));
-            if (movieDoc.exists()) {
-              const movie = { 
-                id: movieDoc.id, 
-                title: movieDoc.data().title,
-                coverImageUrl: movieDoc.data().coverImageUrl
-              };
-              const notification = createWatchlistNotification(movie);
-              watchlistNotifications.appendChild(notification);
-              setTimeout(() => notification.classList.add('show'), 50);
-              setTimeout(() => lastAddedMovieId = null, 2000);
-            }
-          }
-        }
-        watchlistNotifications.innerHTML = '';
-        if (watchlist.length > 0) showWatchlistNotifications();
-      } catch (error) {
-        showToast('Error updating watchlist: ' + error.message, 'error');
-      }
-    } else {
-      const movieId = target.getAttribute('data-movie-id') || target.closest('.movie-card')?.getAttribute('data-movie-id');
-      if (movieId) {
-        await countView(movieId);
-        if (currentUser) {
-          const userRef = doc(db, 'users', currentUser.uid);
-          if (!watchHistory.includes(movieId)) {
-            watchHistory.unshift(movieId);
-            watchHistory = watchHistory.slice(0, 50);
-            await updateDoc(userRef, { history: watchHistory });
-            saveWatchHistoryToCookies(watchHistory);
-          }
-        }
-        window.location.href = `see.html?id=${movieId}`;
-      }
-    }
-  });
-}
-
-async function countView(movieId) {
-  const now = Date.now();
-  const lastViewTime = lastViewTimestamps[movieId] || 0;
-  if (now - lastViewTime > 3600000) {
-    try {
-      const movieRef = doc(db, 'movies', movieId);
-      await updateDoc(movieRef, { views: increment(1) });
-      lastViewTimestamps[movieId] = now;
-      const movieIndex = movies.findIndex(m => m.id === movieId);
-      if (movieIndex !== -1) {
-        movies[movieIndex].views = (movies[movieIndex].views || 0) + 1;
-      }
-    } catch (error) {
-      console.error('Error counting view:', error);
-    }
-  }
-}
-
-async function loadMoviesByGenre(genre) {
-  showLoading();
-  try {
-    const q = query(collection(db, 'movies'), where('genres', 'array-contains', genre), orderBy('releaseYear', 'desc'), limit(20));
-    const querySnapshot = await getDocs(q);
-    let genreMovies = querySnapshot.docs.map(doc => ({ 
-      id: doc.id, 
-      ...doc.data(),
-      genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
-      releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
-      timestamp: doc.data().dateAdded?.toDate() || new Date()
-    }));
-    if (currentUser) {
-      const userRef = doc(db, 'users', currentUser.uid);
-      const userSnap = await getDoc(userRef);
-      if (userSnap.exists()) {
-        const preferences = userSnap.data().displayPreferences || {};
-        genreMovies = sortMovies(genreMovies, preferences.sortField || 'releaseYear', preferences.sortOrder || 'desc');
-      }
-    }
-    renderMovieList(genreMovies, `${genre} Movies`);
-    hideLoading();
-  } catch (error) {
-    showToast('Error loading movies: ' + error.message, 'error');
-    hideLoading();
-  }
-}
-
-async function loadAllMovies(sort = 'latest') {
-  showLoading();
-  try {
-    let q;
-    let sortField = 'releaseYear';
-    let allMovies = [];
-    if (sort === 'popular') {
-      q = query(collection(db, 'movies'), orderBy('views', 'desc'));
-      sortField = 'views';
-    } else if (sort === 'newest') {
-      q = query(collection(db, 'movies'), orderBy('dateAdded', 'desc'));
-      sortField = 'dateAdded';
-    } else {
-      q = query(collection(db, 'movies'), orderBy('releaseYear', 'desc'));
-    }
-    let querySnapshot = await getDocs(q);
-    allMovies = querySnapshot.docs.map(doc => ({ 
-      id: doc.id, 
-      ...doc.data(),
-      genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
-      releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
-      views: typeof doc.data().views === 'number' ? doc.data().views : 0,
-      timestamp: doc.data().dateAdded?.toDate() || new Date(),
-      seriesId: doc.data().seriesId || null
-    }));
-
-    if (sort === 'newest') {
       const seriesGroups = new Map();
-      for (const movie of allMovies) {
+      for (const movie of movies) {
         const seriesKey = movie.seriesId || getTitlePrefix(movie.title);
         if (!seriesGroups.has(seriesKey)) {
           seriesGroups.set(seriesKey, []);
         }
         seriesGroups.get(seriesKey).push(movie);
       }
-      allMovies = [];
+
+      const uniqueMovies = [];
       for (const group of seriesGroups.values()) {
         const selectedMovies = [];
         for (let i = 0; i < Math.min(3, group.length); i++) {
@@ -2075,181 +1090,646 @@ async function loadAllMovies(sort = 'latest') {
           selectedMovies.push(group[randomIndex]);
           group.splice(randomIndex, 1);
         }
-        allMovies.push(...selectedMovies);
+        uniqueMovies.push(...selectedMovies);
+        if (uniqueMovies.length >= 10) break;
+      }
+
+      while (uniqueMovies.length < 10 && querySnapshot.docs.length >= 16) {
+        q = query(
+          collection(db, 'movies'),
+          orderBy('dateAdded', 'desc'),
+          startAfter(querySnapshot.docs[querySnapshot.docs.length - 1]),
+          limit(16)
+        );
+        querySnapshot = await getDocs(q);
+        const moreMovies = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+          genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
+          releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
+          views: typeof doc.data().views === 'number' ? doc.data().views : 0,
+          timestamp: doc.data().dateAdded?.toDate() || new Date(),
+          seriesId: doc.data().seriesId || null
+        }));
+        for (const movie of moreMovies) {
+          const seriesKey = movie.seriesId || getTitlePrefix(movie.title);
+          if (!seriesGroups.has(seriesKey)) {
+            seriesGroups.set(seriesKey, []);
+          }
+          seriesGroups.get(seriesKey).push(movie);
+          if (!uniqueMovies.some(m => (m.seriesId || getTitlePrefix(m.title)) === seriesKey)) {
+            const selectedMovies = [];
+            for (let i = 0; i < Math.min(3, seriesGroups.get(seriesKey).length); i++) {
+              const randomIndex = Math.floor(Math.random() * seriesGroups.get(seriesKey).length);
+              selectedMovies.push(seriesGroups.get(seriesKey)[randomIndex]);
+              seriesGroups.get(seriesKey).splice(randomIndex, 1);
+            }
+            uniqueMovies.push(...selectedMovies);
+          }
+          if (uniqueMovies.length >= 10) break;
+        }
+      }
+
+      return uniqueMovies.slice(0, 10);
+    }
+
+    function getTitlePrefix(title) {
+      const words = title.split(' ').slice(0, Math.ceil(title.split(' ').length * 0.7));
+      return words.join(' ').toLowerCase().replace(/[^a-z0-9]/g, '');
+    }
+
+    function startSlideshow() {
+      if (!featuredMovies.length) return;
+      let currentSlide = 0;
+      
+      function showSlide(index) {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (!slides.length) return;
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+      }
+
+      function nextSlide() {
+        requestAnimationFrame(() => {
+          const nextIndex = (currentSlide + 1) % featuredMovies.length;
+          showSlide(nextIndex);
+        });
+      }
+
+      showSlide(0);
+      slideInterval = setInterval(nextSlide, 15000);
+
+      document.querySelectorAll('.hero-slide').forEach(slide => {
+        slide.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slide.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 15000));
+      });
+    }
+
+    async function renderHomePage(newestMovies) {
+      let sortField = 'releaseYear';
+      let sortOrder = 'desc';
+      if (currentUser) {
+        const userRef = doc(db, 'users', currentUser.uid);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          const preferences = userSnap.data().displayPreferences || {};
+          sortField = preferences.sortField || 'releaseYear';
+          sortOrder = preferences.sortOrder || 'desc';
+        }
+      }
+
+      let html = featuredMovies.length > 0 ? `
+        <section class="hero-slideshow">
+          ${featuredMovies.map(movie => `
+            <div class="hero-slide" style="--hero-background: url('${movie.coverImageUrl || 'https://via.placeholder.com/1920x1080?text=Featured+Movie'}')">
+              <div class="hero-content">
+                <h1>${movie.title}</h1>
+                <p>${movie.description?.substring(0, 150) || 'No description available.'}...</p>
+                <div class="hero-buttons">
+                  <button class="watch-btn" data-movie-id="${movie.id}"><i class="fas fa-play"></i> Watch Now</button>
+                  <button class="info-btn" data-movie-id="${movie.id}"><i class="fas fa-info-circle"></i> More Info</button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </section>
+      ` : '';
+
+      if (newestMovies && newestMovies.length > 0) {
+        html += `
+          <section class="section">
+            <h2 class="section-title">Newest Releases <a href="#" class="view-all" data-sort="newest">See All</a></h2>
+            <div class="movies-grid">
+              ${newestMovies.map(movie => renderMovieCard(movie)).slice(0, 10).join('')}
+            </div>
+          </section>
+        `;
+      }
+
+      if (watchHistory.length > 0) {
+        const forYouMovies = await loadForYouMovies();
+        if (forYouMovies.length > 0) {
+          html += `
+            <section class="section">
+              <h2 class="section-title">For You <small>(Based on your preferences)</small></h2>
+              <div class="movies-grid">
+                ${forYouMovies.map(movie => renderMovieCard(movie)).slice(0, 12).join('')}
+              </div>
+            </section>
+          `;
+        }
+      }
+
+      if (movies.length > 0) {
+        const popularMovies = sortMovies([...movies], 'views', 'desc').slice(0, 10);
+        html += `
+          <section class="section">
+            <h2 class="section-title">Popular Movies <a href="#" class="view-all" data-sort="popular">See All</a></h2>
+            <div class="movies-grid">
+              ${popularMovies.map(movie => renderMovieCard(movie)).join('')}
+            </div>
+          </section>
+        `;
+      }
+
+      html += `
+        <div class="genre-bar">
+          ${['<b>Action</b>', '<b>Adventure</b>', '<b>Animation</b>', '<b>Comedy</b>', '<b>Crime</b>', '<b>Drama</b>', '<b>Horror</b>', '<b>Romance</b>', '<b>Adult</b>', '<b>War</b>', '<b>Thriller</b>', '<b>Indian</b>', '<b>Sci-Fi</b>', '<b>Sport</b>'].map(genre => `
+            <a href="#" class="genre-bar" data-genre="${genre.replace(/<b>|<\/b>/g, '')}">${genre}</a>
+          `).join('')}
+        </div>
+      `;
+
+      if (movies.length > 0) {
+        const allMovies = sortMovies([...movies], 'releaseYear', 'desc');
+        html += `
+          <section class="section">
+            <h2 class="section-title">All Movies</h2>
+            <div class="movies-grid">
+              ${allMovies.map(movie => renderMovieCard(movie)).join('')}
+            </div>
+          </section>
+        `;
+      }
+
+      mainContent.innerHTML = html;
+      attachMovieCardEvents();
+      enableTouchScrolling();
+      document.querySelectorAll('.view-all').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sort = link.getAttribute('data-sort');
+          const genre = link.getAttribute('data-genre');
+          if (genre) loadMoviesByGenre(genre);
+          else if (sort) loadAllMovies(sort);
+        });
+      });
+    }
+
+    async function loadForYouMovies() {
+      if (!currentUser || watchHistory.length === 0) {
+        return sortMovies([...movies], 'views', 'desc').slice(0, 12);
+      }
+
+      const watchedIds = new Set(watchHistory);
+      const favoriteGenre = getFavoriteGenre();
+      let candidateMovies = movies.filter(movie => 
+        !watchedIds.has(movie.id) && 
+        Array.isArray(movie.genres) && 
+        movie.genres.includes(favoriteGenre)
+      );
+
+      if (candidateMovies.length < 12) {
+        const additionalMovies = movies.filter(movie => 
+          !watchedIds.has(movie.id) && 
+          Array.isArray(movie.genres) && 
+          movie.genres.some(g => g !== favoriteGenre)
+        );
+        candidateMovies = [...candidateMovies, ...additionalMovies];
+      }
+
+      candidateMovies = sortMovies(candidateMovies, 'views', 'desc');
+      return candidateMovies.slice(0, 12);
+    }
+
+    function sortMovies(movies, field, order) {
+      const sorted = [...movies];
+      const isAsc = order === 'asc';
+      switch (field) {
+        case 'title': sorted.sort((a, b) => isAsc ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)); break;
+        case 'rating': sorted.sort((a, b) => isAsc ? (a.rating || 0) - (b.rating || 0) : (b.rating || 0) - (a.rating || 0)); break;
+        case 'releaseYear': sorted.sort((a, b) => isAsc ? (a.releaseYear || 0) - (b.releaseYear || 0) : (b.releaseYear || 0) - (a.releaseYear || 0)); break;
+        case 'views': sorted.sort((a, b) => isAsc ? (a.views || 0) - (b.views || 0) : (b.views || 0) - (a.views || 0)); break;
+        case 'dateAdded': sorted.sort((a, b) => isAsc ? a.timestamp - b.timestamp : b.timestamp - a.timestamp); break;
+        default: sorted.sort((a, b) => isAsc ? (a.releaseYear || 0) - (b.releaseYear || 0) : (b.releaseYear || 0) - (a.releaseYear || 0));
+      }
+      return sorted;
+    }
+
+    function formatTimeSince(timestamp) {
+      const now = new Date();
+      const seconds = Math.floor((now - timestamp) / 1000);
+      let interval = Math.floor(seconds / 31536000);
+      if (interval >= 1) return `${interval} year${interval === 1 ? '' : 's'} ago`;
+      interval = Math.floor(seconds / 2592000);
+      if (interval >= 1) return `${interval} month${interval === 1 ? '' : 's'} ago`;
+      interval = Math.floor(seconds / 86400);
+      if (interval >= 1) return `${interval} day${interval === 1 ? '' : 's'} ago`;
+      interval = Math.floor(seconds / 3600);
+      if (interval >= 1) return `${interval} hour${interval === 1 ? '' : 's'} ago`;
+      interval = Math.floor(seconds / 60);
+      if (interval >= 1) return `${interval} minute${interval === 1 ? '' : 's'} ago`;
+      return `${Math.floor(seconds)} second${seconds === 1 ? '' : 's'} ago`;
+    }
+
+    function getFavoriteGenre() {
+      const genreCounts = {};
+      let maxCount = 0;
+      let favoriteGenre = genres[0] || 'Action';
+      watchHistory.forEach(movieId => {
+        const movie = movies.find(m => m.id === movieId);
+        if (movie && Array.isArray(movie.genres)) {
+          movie.genres.forEach(genre => {
+            genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+            if (genreCounts[genre] > maxCount) {
+              maxCount = genreCounts[genre];
+              favoriteGenre = genre;
+            }
+          });
+        }
+      });
+      return favoriteGenre;
+    }
+
+    async function loadForYou() {
+      showLoading();
+      try {
+        const forYouMovies = await loadForYouMovies();
+        renderMovieList(forYouMovies, 'For You (Recommended)');
+        enableTouchScrolling();
+        hideLoading();
+      } catch (error) {
+        showToast('Error loading recommendations: ' + error.message, 'error');
+        hideLoading();
       }
     }
 
-    if (currentUser) {
-      const userRef = doc(db, 'users', currentUser.uid);
-      const userSnap = await getDoc(userRef);
-      if (userSnap.exists()) {
-        const preferences = userSnap.data().displayPreferences || {};
-        allMovies = sortMovies(allMovies, preferences.sortField || sortField, preferences.sortOrder || 'desc');
+    function renderMovieCard(movie) {
+      const inWatchlist = currentUser && watchlist.includes(movie.id);
+      const timeSince = formatTimeSince(movie.timestamp);
+      return `
+        <div class="movie-card" data-movie-id="${movie.id}">
+          ${movie.umusobanuzi ? `<span class="umusobanuzi">${movie.umusobanuzi}</span>` : ''}
+          <img src="${movie.coverImageUrl || 'https://via.placeholder.com/300x450?text=No+Image'}" 
+               alt="${movie.title}" class="movie-poster" loading="lazy">
+          <div class="movie-info">
+            <h3 class="movie-title">${movie.title} (${movie.releaseYear || 'N/A'})</h3>
+            <div class="movie-meta">
+              <span>${movie.releaseYear || 'N/A'}</span>
+              ${movie.rating ? `<span class="movie-rating"><i class="fas fa-star"></i> ${movie.rating}</span>` : ''}
+            </div>
+            ${movie.views ? `<div class="view-count"><i class="fas fa-eye"></i> ${movie.views}</div>` : ''}
+            <div class="time-indicator">${timeSince}</div>
+          </div>
+          <div class="movie-overlay">
+            <h3 class="overlay-title">${movie.title}</h3>
+            ${Array.isArray(movie.genres) && movie.genres.length ? `
+              <div class="overlay-genres">
+                ${movie.genres.map(genre => `<span class="genre-tag">${genre}</span>`).join('')}
+              </div>
+            ` : ''}
+            <p>${movie.description?.substring(0, 80) || 'No description available'}...</p>
+            <button class="overlay-btn" data-movie-id="${movie.id}"><i class="fas fa-play"></i> Watch Now</button>
+            ${currentUser ? `
+              <button class="overlay-btn watchlist-btn ${inWatchlist ? 'in-watchlist' : ''}" 
+                      data-movie-id="${movie.id}">
+                <i class="fas ${inWatchlist ? 'fa-check' : 'fa-plus'}"></i> 
+                ${inWatchlist ? 'In Watchlist' : 'Add to Watchlist'}
+              </button>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    function attachMovieCardEvents() {
+      mainContent.addEventListener('click', async (e) => {
+        const target = e.target.closest('.movie-card, .watch-btn, .info-btn, .overlay-btn:not(.watchlist-btn), .watchlist-btn');
+        if (!target) return;
+        if (target.classList.contains('watchlist-btn')) {
+          e.stopPropagation();
+          const movieId = target.getAttribute('data-movie-id');
+          if (!currentUser) {
+            showToast('Please login to use watchlist', 'error');
+            window.location.href = 'login.html';
+            return;
+          }
+          try {
+            const userRef = doc(db, 'users', currentUser.uid);
+            if (watchlist.includes(movieId)) {
+              await updateDoc(userRef, { watchlist: arrayRemove(movieId) });
+              watchlist = watchlist.filter(id => id !== movieId);
+              showToast('Removed from watchlist', 'success');
+              target.classList.remove('in-watchlist');
+              target.innerHTML = `<i class="fas fa-plus"></i> Add to Watchlist`;
+            } else {
+              await updateDoc(userRef, { watchlist: arrayUnion(movieId) });
+              watchlist.push(movieId);
+              showToast('Added to watchlist', 'success');
+              target.classList.add('in-watchlist');
+              target.innerHTML = `<i class="fas fa-check"></i> In Watchlist`;
+              
+              if (movieId !== lastAddedMovieId) {
+                lastAddedMovieId = movieId;
+                const movieDoc = await getDoc(doc(db, 'movies', movieId));
+                if (movieDoc.exists()) {
+                  const movie = { 
+                    id: movieDoc.id, 
+                    title: movieDoc.data().title,
+                    coverImageUrl: movieDoc.data().coverImageUrl
+                  };
+                  const notification = createWatchlistNotification(movie);
+                  watchlistNotifications.appendChild(notification);
+                  setTimeout(() => notification.classList.add('show'), 50);
+                  setTimeout(() => lastAddedMovieId = null, 2000);
+                }
+              }
+            }
+            watchlistNotifications.innerHTML = '';
+            if (watchlist.length > 0) showWatchlistNotifications();
+          } catch (error) {
+            showToast('Error updating watchlist: ' + error.message, 'error');
+          }
+        } else {
+          const movieId = target.getAttribute('data-movie-id') || target.closest('.movie-card')?.getAttribute('data-movie-id');
+          if (movieId) {
+            await countView(movieId);
+            if (currentUser) {
+              const userRef = doc(db, 'users', currentUser.uid);
+              if (!watchHistory.includes(movieId)) {
+                watchHistory.unshift(movieId);
+                watchHistory = watchHistory.slice(0, 50);
+                await updateDoc(userRef, { history: watchHistory });
+                saveWatchHistoryToCookies(watchHistory);
+              }
+            }
+            window.location.href = `see.html?id=${movieId}`;
+          }
+        }
+      });
+    }
+
+    async function countView(movieId) {
+      const now = Date.now();
+      const lastViewTime = lastViewTimestamps[movieId] || 0;
+      if (now - lastViewTime > 3600000) {
+        try {
+          const movieRef = doc(db, 'movies', movieId);
+          await updateDoc(movieRef, { views: increment(1) });
+          lastViewTimestamps[movieId] = now;
+          const movieIndex = movies.findIndex(m => m.id === movieId);
+          if (movieIndex !== -1) {
+            movies[movieIndex].views = (movies[movieIndex].views || 0) + 1;
+          }
+        } catch (error) {
+          console.error('Error counting view:', error);
+        }
       }
     }
-    renderMovieList(allMovies, sort === 'popular' ? 'Popular Movies' : sort === 'newest' ? 'Newest Releases' : 'Latest Movies');
-    hideLoading();
-  } catch (error) {
-    showToast('Error loading movies: ' + error.message, 'error');
-    hideLoading();
-  }
-}
 
-function renderMovieList(movies, title) {
-  const html = `
-    <section class="section">
-      <h2 class="section-title">${title}</h2>
-      ${movies.length > 0 ? `<div class="movies-grid">${movies.map(movie => renderMovieCard(movie)).join('')}</div>` : '<p>No movies found.</p>'}
-    </section>
-  `;
-  mainContent.innerHTML = html;
-  attachMovieCardEvents();
-}
-
-async function loadUserData(userId) {
-  try {
-    const userRef = doc(db, 'users', userId);
-    const userSnap = await getDoc(userRef);
-    if (userSnap.exists()) {
-      const userData = userSnap.data();
-      watchlist = userData.watchlist || [];
-      const validMovieIds = movies.map(m => m.id);
-      watchHistory = (userData.history || []).filter(id => validMovieIds.includes(id));
-      await updateDoc(userRef, { history: watchHistory });
-      saveWatchHistoryToCookies(watchHistory);
+    async function loadMoviesByGenre(genre) {
+      showLoading();
+      try {
+        const q = query(collection(db, 'movies'), where('genres', 'array-contains', genre), orderBy('releaseYear', 'desc'), limit(20));
+        const querySnapshot = await getDocs(q);
+        let genreMovies = querySnapshot.docs.map(doc => ({ 
+          id: doc.id, 
+          ...doc.data(),
+          genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
+          releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
+          timestamp: doc.data().dateAdded?.toDate() || new Date()
+        }));
+        if (currentUser) {
+          const userRef = doc(db, 'users', currentUser.uid);
+          const userSnap = await getDoc(userRef);
+          if (userSnap.exists()) {
+            const preferences = userSnap.data().displayPreferences || {};
+            genreMovies = sortMovies(genreMovies, preferences.sortField || 'releaseYear', preferences.sortOrder || 'desc');
+          }
+        }
+        renderMovieList(genreMovies, `${genre} Movies`);
+        enableTouchScrolling();
+        hideLoading();
+      } catch (error) {
+        showToast('Error loading movies: ' + error.message, 'error');
+        hideLoading();
+      }
     }
-  } catch (error) {
-    console.error('Error loading user data:', error);
-  }
-}
 
-async function loadWatchlist() {
-  if (!currentUser) {
-    showToast('Please login to view your watchlist', 'error');
-    window.location.href = 'login.html';
-    return;
-  }
-  showLoading();
-  try {
-    if (watchlist.length === 0) {
-      mainContent.innerHTML = `
+    async function loadAllMovies(sort = 'latest') {
+      showLoading();
+      try {
+        let q;
+        let sortField = 'releaseYear';
+        let allMovies = [];
+        if (sort === 'popular') {
+          q = query(collection(db, 'movies'), orderBy('views', 'desc'));
+          sortField = 'views';
+        } else if (sort === 'newest') {
+          q = query(collection(db, 'movies'), orderBy('dateAdded', 'desc'));
+          sortField = 'dateAdded';
+        } else {
+          q = query(collection(db, 'movies'), orderBy('releaseYear', 'desc'));
+        }
+        let querySnapshot = await getDocs(q);
+        allMovies = querySnapshot.docs.map(doc => ({ 
+          id: doc.id, 
+          ...doc.data(),
+          genres: Array.isArray(doc.data().genres) ? doc.data().genres : [],
+          releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
+          views: typeof doc.data().views === 'number' ? doc.data().views : 0,
+          timestamp: doc.data().dateAdded?.toDate() || new Date(),
+          seriesId: doc.data().seriesId || null
+        }));
+
+        if (sort === 'newest') {
+          const seriesGroups = new Map();
+          for (const movie of allMovies) {
+            const seriesKey = movie.seriesId || getTitlePrefix(movie.title);
+            if (!seriesGroups.has(seriesKey)) {
+              seriesGroups.set(seriesKey, []);
+            }
+            seriesGroups.get(seriesKey).push(movie);
+          }
+          allMovies = [];
+          for (const group of seriesGroups.values()) {
+            const selectedMovies = [];
+            for (let i = 0; i < Math.min(3, group.length); i++) {
+              const randomIndex = Math.floor(Math.random() * group.length);
+              selectedMovies.push(group[randomIndex]);
+              group.splice(randomIndex, 1);
+            }
+            allMovies.push(...selectedMovies);
+          }
+        }
+
+        if (currentUser) {
+          const userRef = doc(db, 'users', currentUser.uid);
+          const userSnap = await getDoc(userRef);
+          if (userSnap.exists()) {
+            const preferences = userSnap.data().displayPreferences || {};
+            allMovies = sortMovies(allMovies, preferences.sortField || sortField, preferences.sortOrder || 'desc');
+          }
+        }
+        renderMovieList(allMovies, sort === 'popular' ? 'Popular Movies' : sort === 'newest' ? 'Newest Releases' : 'Latest Movies');
+        enableTouchScrolling();
+        hideLoading();
+      } catch (error) {
+        showToast('Error loading movies: ' + error.message, 'error');
+        hideLoading();
+      }
+    }
+
+    function renderMovieList(movies, title) {
+      const html = `
         <section class="section">
-          <h2 class="section-title">Your Watchlist</h2>
-          <p>Your watchlist is empty. Add movies to watch later!</p>
+          <h2 class="section-title">${title}</h2>
+          ${movies.length > 0 ? `<div class="movies-grid">${movies.map(movie => renderMovieCard(movie)).join('')}</div>` : '<p>No movies found.</p>'}
         </section>
       `;
-      hideLoading();
-      return;
+      mainContent.innerHTML = html;
+      attachMovieCardEvents();
+      enableTouchScrolling();
     }
-    const moviePromises = watchlist.map(movieId => 
-      getDoc(doc(db, 'movies', movieId)).then(docSnap => 
-        docSnap.exists() ? { 
-          id: docSnap.id, 
-          ...docSnap.data(),
-          genres: Array.isArray(docSnap.data().genres) ? docSnap.data().genres : [],
-          releaseYear: typeof docSnap.data().releaseYear === 'number' ? docSnap.data().releaseYear : 0,
-          timestamp: docSnap.data().dateAdded?.toDate() || new Date()
-        } : null
-      )
-    );
-    const watchlistMovies = (await Promise.all(moviePromises)).filter(Boolean);
-    renderMovieList(watchlistMovies, 'Your Watchlist');
-    hideLoading();
-  } catch (error) {
-    showToast('Error loading watchlist: ' + error.message, 'error');
-    hideLoading();
-  }
-}
 
-async function loadHistory() {
-  if (!currentUser) {
-    showToast('Please login to view your history', 'error');
-    window.location.href = 'login.html';
-    return;
-  }
-  showLoading();
-  try {
-    if (watchHistory.length === 0) {
-      mainContent.innerHTML = `
-        <section class="section">
-          <h2 class="section-title">Watch History</h2>
-          <p>Your watch history is empty.</p>
-        </section>
-      `;
-      hideLoading();
-      return;
-    }
-    const moviePromises = watchHistory.map(movieId => 
-      getDoc(doc(db, 'movies', movieId)).then(docSnap => 
-        docSnap.exists() ? { 
-          id: docSnap.id, 
-          ...docSnap.data(),
-          genres: Array.isArray(docSnap.data().genres) ? docSnap.data().genres : [],
-          releaseYear: typeof docSnap.data().releaseYear === 'number' ? docSnap.data().releaseYear : 0,
-          timestamp: docSnap.data().dateAdded?.toDate() || new Date()
-        } : null
-      )
-    );
-    const historyMovies = (await Promise.all(moviePromises)).filter(Boolean);
-    renderMovieList(historyMovies, 'Watch History');
-    hideLoading();
-  } catch (error) {
-    showToast('Error loading history: ' + error.message, 'error');
-    hideLoading();
-  }
-}
-
-function saveWatchHistoryToCookies(history) {
-  document.cookie = `watchHistory=${JSON.stringify(history)}; path=/; max-age=${60 * 60 * 24 * 30}`;
-}
-
-function loadWatchHistoryFromCookies() {
-  const cookies = document.cookie.split('; ');
-  const watchHistoryCookie = cookies.find(cookie => cookie.startsWith('watchHistory='));
-  if (watchHistoryCookie) {
-    try {
-      watchHistory = JSON.parse(watchHistoryCookie.split('=')[1]);
-    } catch (error) {
-      console.error('Error parsing watch history cookie:', error);
-    }
-  }
-}
-
-function checkInternetConnection() {
-  if (!navigator.onLine) {
-    noInternetOverlay.style.display = 'flex';
-  } else {
-    noInternetOverlay.style.display = 'none';
-  }
-}
-
-function setupIntersectionObserver() {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        observer.unobserve(img);
+    async function loadUserData(userId) {
+      try {
+        const userRef = doc(db, 'users', userId);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          const userData = userSnap.data();
+          watchlist = userData.watchlist || [];
+          const validMovieIds = movies.map(m => m.id);
+          watchHistory = (userData.history || []).filter(id => validMovieIds.includes(id));
+          await updateDoc(userRef, { history: watchHistory });
+          saveWatchHistoryToCookies(watchHistory);
+        }
+      } catch (error) {
+        console.error('Error loading user data:', error);
       }
-    });
-  }, observerOptions);
+    }
 
-  document.querySelectorAll('img[data-src]').forEach(img => observer.observe(img));
-}
+    async function loadWatchlist() {
+      if (!currentUser) {
+        showToast('Please login to view your watchlist', 'error');
+        window.location.href = 'login.html';
+        return;
+      }
+      showLoading();
+      try {
+        if (watchlist.length === 0) {
+          mainContent.innerHTML = `
+            <section class="section">
+              <h2 class="section-title">Your Watchlist</h2>
+              <p>Your watchlist is empty. Add movies to watch later!</p>
+            </section>
+          `;
+          hideLoading();
+          return;
+        }
+        const moviePromises = watchlist.map(movieId => 
+          getDoc(doc(db, 'movies', movieId)).then(docSnap => 
+            docSnap.exists() ? { 
+              id: docSnap.id, 
+              ...docSnap.data(),
+              genres: Array.isArray(docSnap.data().genres) ? docSnap.data().genres : [],
+              releaseYear: typeof docSnap.data().releaseYear === 'number' ? docSnap.data().releaseYear : 0,
+              timestamp: docSnap.data().dateAdded?.toDate() || new Date()
+            } : null
+          )
+        );
+        const watchlistMovies = (await Promise.all(moviePromises)).filter(Boolean);
+        renderMovieList(watchlistMovies, 'Your Watchlist');
+        enableTouchScrolling();
+        hideLoading();
+      } catch (error) {
+        showToast('Error loading watchlist: ' + error.message, 'error');
+        hideLoading();
+      }
+    }
 
-function showLoading() {
-  loadingSpinner.classList.add('active');
-}
+    async function loadHistory() {
+      if (!currentUser) {
+        showToast('Please login to view your history', 'error');
+        window.location.href = 'login.html';
+        return;
+      }
+      showLoading();
+      try {
+        if (watchHistory.length === 0) {
+          mainContent.innerHTML = `
+            <section class="section">
+              <h2 class="section-title">Watch History</h2>
+              <p>Your watch history is empty.</p>
+            </section>
+          `;
+          hideLoading();
+          return;
+        }
+        const moviePromises = watchHistory.map(movieId => 
+          getDoc(doc(db, 'movies', movieId)).then(docSnap => 
+            docSnap.exists() ? { 
+              id: docSnap.id, 
+              ...docSnap.data(),
+              genres: Array.isArray(docSnap.data().genres) ? doc.data().genres : [],
+              releaseYear: typeof doc.data().releaseYear === 'number' ? doc.data().releaseYear : 0,
+              timestamp: doc.data().dateAdded?.toDate() || new Date()
+            } : null
+          )
+        );
+        const historyMovies = (await Promise.all(moviePromises)).filter(Boolean);
+        renderMovieList(historyMovies, 'Watch History');
+        enableTouchScrolling();
+        hideLoading();
+      } catch (error) {
+        showToast('Error loading history: ' + error.message, 'error');
+        hideLoading();
+      }
+    }
 
-function hideLoading() {
-  loadingSpinner.classList.remove('active');
-}
-   </script>
-   </body>
-   </html>
+    function saveWatchHistoryToCookies(history) {
+      document.cookie = `watchHistory=${JSON.stringify(history)}; path=/; max-age=${60 * 60 * 24 * 30}`;
+    }
+
+    function loadWatchHistoryFromCookies() {
+      const cookies = document.cookie.split('; ');
+      const watchHistoryCookie = cookies.find(cookie => cookie.startsWith('watchHistory='));
+      if (watchHistoryCookie) {
+        try {
+          watchHistory = JSON.parse(watchHistoryCookie.split('=')[1]);
+        } catch (error) {
+          console.error('Error parsing watch history cookie:', error);
+        }
+      }
+    }
+
+    function checkInternetConnection() {
+      if (!navigator.onLine) {
+        noInternetOverlay.style.display = 'flex';
+      } else {
+        noInternetOverlay.style.display = 'none';
+      }
+    }
+
+    function setupIntersectionObserver() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            observer.unobserve(img);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('img[data-src]').forEach(img => observer.observe(img));
+    }
+
+    function showLoading() {
+      loadingSpinner.classList.add('active');
+    }
+
+    function hideLoading() {
+      loadingSpinner.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
