@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KINAFLIXPlus – Profile</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary: #e50914;
+      --dark: #141414;
+      --light: #f4f4f4;
+      --gray: #999;
+      --dark-gray: #222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      font-size: 16px;
+    }
+
+    header {
+      background-color: var(--dark);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      color: var(--primary);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .logout-btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      border: none;
+    }
+
+    .logout-btn:hover {
+      background: #f40612;
+    }
+
+    .sidebar-link {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .sidebar-link:hover, .sidebar-link.active {
+      color: var(--primary);
+    }
+
+    .admin-container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .total-label {
+      font-size: 1.2rem;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .list-group-item {
+      background-color: var(--dark-gray);
+      color: var(--light);
+      border-color: var(--gray);
+      cursor: pointer;
+    }
+
+    .list-group-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .payout-grid .card {
+      aspect-ratio: 1/1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .payout-grid .card:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .payout-grid .card-body {
+      flex-grow: 1;
+    }
+
+    .modal-content {
+      background: var(--dark-gray);
+      color: var(--light);
+      border-radius: 8px;
+    }
+
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 4px;
+      background: var(--dark);
+      color: var(--light);
+      border: 1px solid var(--gray);
+      resize: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: #f40612;
+      border-color: #f40612;
+    }
+
+    .btn-success {
+      background-color: #4caf50;
+      border-color: #4caf50;
+    }
+
+    .btn-success:hover {
+      background-color: #45a049;
+      border-color: #45a049;
+    }
+
+    .btn-danger {
+      background-color: #f44336;
+      border-color: #f44336;
+    }
+
+    .btn-danger:hover {
+      background-color: #d32f2f;
+      border-color: #d32f2f;
+    }
+
+    .btn-warning {
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+
+    .btn-warning:hover {
+      background-color: #e0a800;
+      border-color: #e0a800;
+    }
+
+    .spinner {
+      display: none;
+      width: 40px;
+      height: 40px;
+      margin: 2rem auto;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .spinner.active {
+      display: block;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--dark);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      font-size: 1rem;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.error {
+      background-color: #f44336;
+    }
+
+    .toast.success {
+      background-color: #4caf50;
+    }
+
+    footer {
+      background-color: var(--dark-gray);
+      padding: 3rem 2rem 1rem;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    .footer-bottom {
+      padding-top: 1rem;
+      border-top: 1px solid var(--dark);
+    }
+
+    @media (max-width: 1024px) {
+      .admin-container {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .admin-container, footer {
+        padding: 1rem;
+      }
+      .logo {
+        font-size: 1.5rem;
+      }
+      .logout-btn {
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+      .sidebar-link {
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">KINAFLIX</a>
+    <nav class="d-flex align-items-center gap-3">
+      <a href="#" class="sidebar-link active" data-section="users">Users</a>
+      <a href="#" class="sidebar-link" data-section="payouts">Payouts</a>
+    </nav>
+    <button class="logout-btn">Logout</button>
+  </header>
+
+  <main class="admin-container">
+    <section id="users-section" class="section">
+      <h2 class="section-title">Users</h2>
+      <div class="total-label" id="total-users">Total Users: 0</div>
+      <div class="spinner" id="loading-spinner"></div>
+      <div id="users-list" class="list-group"></div>
+    </section>
+
+    <section id="payouts-section" class="section d-none">
+      <h2 class="section-title">Payout Requests</h2>
+      <div class="total-label" id="total-pending-payouts">Pending Requests: 0</div>
+      <div class="spinner" id="loading-spinner-payouts"></div>
+      <div id="payouts-grid" class="row g-3 payout-grid"></div>
+    </section>
+  </main>
+
+  <div class="modal fade" id="user-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="modal-title"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-content"></div>
+        <div class="modal-body">
+          <canvas id="analytics-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="payout-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="payout-modal-title"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="payout-modal-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>© 2025 KINAFLIXPlus. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast"></div>
+
+  <script>
+    // Firebase initialization (compat mode, no modules)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBrRTdhrRTRL9ZfZpb-m-1XBmbDIsXF9k",
+      authDomain: "kinaflix.firebaseapp.com",
+      projectId: "kinaflix",
+      storageBucket: "kinaflix.firebasestorage.app",
+      messagingSenderId: "318239806217",
+      appId: "1:318239806217:web:ee98bd97cd2a08ac3239d8",
+      measurementId: "G-DC1T9B6B9W"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const messaging = firebase.messaging();
+
+    const usersSection = document.getElementById('users-section');
+    const payoutsSection = document.getElementById('payouts-section');
+    const usersList = document.getElementById('users-list');
+    const payoutsGrid = document.getElementById('payouts-grid');
+    const userModal = new bootstrap.Modal(document.getElementById('user-modal'));
+    const payoutModal = new bootstrap.Modal(document.getElementById('payout-modal'));
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    const payoutModalTitle = document.getElementById('payout-modal-title');
+    const payoutModalContent = document.getElementById('payout-modal-content');
+    const totalUsersLabel = document.getElementById('total-users');
+    const totalPendingPayoutsLabel = document.getElementById('total-pending-payouts');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const loadingSpinnerPayouts = document.getElementById('loading-spinner-payouts');
+    const toast = document.querySelector('.toast');
+    let currentUser = null;
+
+    // Security: Block right-click and developer tools
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))) {
+        e.preventDefault();
+        showToast('Developer tools are disabled', 'error');
+      }
+    });
+    console.log('%cWARNING: Accessing the console is restricted.', 'color: red; font-size: 20px;');
+
+    // Initialize FCM
+    function initFCM() {
+      if (window.location.protocol === 'file:') {
+        showToast('Firebase requires HTTPS. Please run on a server (e.g., python -m http.server).', 'error');
+        return;
+      }
+      try {
+        if (!navigator.serviceWorker) {
+          showToast('Service workers are not supported in this browser', 'error');
+          return;
+        }
+        const swCode = `
+          importScripts('https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js');
+          importScripts('https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js');
+          firebase.initializeApp(${JSON.stringify(firebaseConfig)});
+          const messaging = firebase.messaging();
+          messaging.onBackgroundMessage((payload) => {
+            const notificationTitle = payload.notification.title;
+            const notificationOptions = {
+              body: payload.notification.body,
+              icon: 'favicon.ico'
+            };
+            self.registration.showNotification(notificationTitle, notificationOptions);
+          });
+        `;
+        const blob = new Blob([swCode], { type: 'text/javascript' });
+        const swUrl = URL.createObjectURL(blob);
+        navigator.serviceWorker.register(swUrl).then(() => {
+          Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+              messaging.getToken({
+                vapidKey: 'BPgwXj_mz0pnoyrB-c3DHADrLhZNn1Ky7DFjmgZNMceOG6ulJTrrp2xPu8j7HnV2E3UGo8StGdnn9HedNVR7-WU'
+              }).then(token => {
+                db.collection('fcmTokens').doc(currentUser.uid).set({
+                  token: token,
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                }, { merge: true });
+                messaging.onMessage(payload => {
+                  showToast(payload.notification.body, 'success');
+                });
+              }).catch(error => {
+                showToast(`FCM token retrieval failed: ${error.message}`, 'error');
+              });
+            } else {
+              showToast('Notification permission denied', 'error');
+            }
+          }).catch(error => {
+            showToast(`Notification permission error: ${error.message}`, 'error');
+          });
+        }).catch(error => {
+          showToast(`Service worker registration failed: ${error.message}`, 'error');
+        });
+      } catch (error) {
+        showToast(`Error initializing FCM: ${error.message}`, 'error');
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      initAuth();
+      initUI();
+    });
+
+    // Handle authentication state
+    function initAuth() {
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          currentUser = user;
+          updateAuthUI();
+          loadUsers();
+          initFCM();
+          listenForNewPayouts();
+        } else {
+          showToast('Please login to access this page', 'error');
+          window.location.href = 'login.html';
+        }
+      });
+    }
+
+    // Update authentication UI
+    function updateAuthUI() {
+      document.querySelector('.logout-btn').addEventListener('click', () => {
+        auth.signOut().then(() => {
+          showToast('Logged out successfully', 'success');
+          window.location.href = 'index.html';
+        }).catch(error => {
+          showToast(`Logout failed: ${error.message}`, 'error');
+        });
+      });
+    }
+
+    // Initialize UI event listeners
+    function initUI() {
+      document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const section = link.getAttribute('data-section');
+          navigateToSection(section);
+        });
+      });
+    }
+
+    // Show toast notification
+    function showToast(message, type = 'info') {
+      toast.textContent = message;
+      toast.className = 'toast';
+      toast.classList.add(type, 'show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Navigate between sections
+    function navigateToSection(section) {
+      document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      document.querySelector(`.sidebar-link[data-section="${section}"]`).classList.add('active');
+      usersSection.classList.add('d-none');
+      payoutsSection.classList.add('d-none');
+      if (section === 'users') {
+        usersSection.classList.remove('d-none');
+        loadUsers();
+      } else if (section === 'payouts') {
+        payoutsSection.classList.remove('d-none');
+        loadPayouts();
+      }
+    }
+
+    // Load users list (sorted alphabetically)
+    function loadUsers() {
+      showLoading();
+      db.collection('plusers')
+        .orderBy('firstName', 'asc')
+        .get()
+        .then(usersSnap => {
+          const users = [];
+          usersSnap.forEach(doc => {
+            users.push({ id: doc.id, ...doc.data() });
+          });
+          totalUsersLabel.textContent = `Total Users: ${users.length}`;
+          usersList.innerHTML = users.length > 0
+            ? users.map(user => `
+                <div class="list-group-item d-flex justify-content-between align-items-center" data-user-id="${user.id}">
+                  <div>
+                    <h5 class="mb-1">${user.firstName || 'Unknown'} ${user.lastName || ''}</h5>
+                    <p class="mb-0 text-gray-400">Join Date: ${user.joinDate ? new Date(user.joinDate.toDate()).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : 'N/A'}</p>
+                    <p class="mb-0 text-gray-400">Total Time Spent: ${formatTime(user.total_watch_time || 0)}</p>
+                  </div>
+                  <i class="bi bi-info-circle text-primary"></i>
+                </div>
+              `).join('')
+            : '<p class="text-gray-400">No users found.</p>';
+          attachUserEvents();
+        }).catch(error => {
+          showToast(`Error loading users: ${error.message}`, 'error');
+        }).finally(() => {
+          hideLoading();
+        });
+    }
+
+    // Format time in seconds to hours:minutes
+    function formatTime(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      return `${hours}h ${minutes}m`;
+    }
+
+    // Attach user click events
+    function attachUserEvents() {
+      document.querySelectorAll('.list-group-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const userId = item.getAttribute('data-user-id');
+          showUserModal(userId);
+        });
+      });
+    }
+
+    // Show user details modal
+    function showUserModal(userId) {
+      showLoading();
+      db.collection('plusers').doc(userId).get().then(userSnap => {
+        if (!userSnap.exists) {
+          showToast('User not found', 'error');
+          return;
+        }
+        const user = userSnap.data();
+        db.collection('request_payouts').where('userId', '==', userId).get().then(payoutSnap => {
+          const payoutCount = payoutSnap.size;
+          modalTitle.textContent = `${user.firstName || 'Unknown'} ${user.lastName || ''}`;
+          modalContent.innerHTML = `
+            <p><strong>ID:</strong> ${userId}</p>
+            <p><strong>Name:</strong> ${user.firstName || 'N/A'} ${user.lastName || ''}</p>
+            <p><strong>Email:</strong> ${user.email || 'N/A'}</p>
+            <p><strong>Join Date:</strong> ${user.joinDate ? new Date(user.joinDate.toDate()).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : 'N/A'}</p>
+            <p><strong>Total Time Spent:</strong> ${formatTime(user.total_watch_time || 0)}</p>
+            <p><strong>Total Payout Requests:</strong> ${payoutCount}</p>
+            <p><strong>Analytics:</strong></p>
+            <ul class="list-disc ps-5">
+              <li>Total Views: ${user.analytics?.views || 0}</li>
+              <li>Average Session Time: ${formatTime(user.analytics?.avgSessionTime || 0)}</li>
+            </ul>
+          `;
+          renderAnalyticsChart(user.analytics || { views: 0, avgSessionTime: 0 });
+          userModal.show();
+        }).catch(error => {
+          showToast(`Error loading payout count: ${error.message}`, 'error');
+        });
+      }).catch(error => {
+        showToast(`Error loading user data: ${error.message}`, 'error');
+      }).finally(() => {
+        hideLoading();
+      });
+    }
+
+    // Render user analytics chart
+    function renderAnalyticsChart(analytics) {
+      const ctx = document.getElementById('analytics-chart').getContext('2d');
+      if (window.analyticsChart) {
+        window.analyticsChart.destroy();
+      }
+      window.analyticsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Views', 'Avg Session Time (min)'],
+          datasets: [{
+            label: 'User Analytics',
+            data: [analytics.views || 0, (analytics.avgSessionTime || 0) / 60],
+            backgroundColor: 'rgba(229, 9, 20, 0.6)',
+            borderColor: '#e50914',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: 'Value', color: '#f4f4f4', font: { size: 14 } },
+              ticks: { color: '#f4f4f4', font: { size: 12 } },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+            },
+            x: {
+              title: { display: true, text: 'Metric', color: '#f4f4f4', font: { size: 14 } },
+              ticks: { color: '#f4f4f4', font: { size: 12 } },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+            }
+          },
+          plugins: {
+            legend: { labels: { color: '#f4f4f4', font: { size: 12 } } }
+          }
+        }
+      });
+    }
+
+    // Load payouts
+    function loadPayouts() {
+      showLoadingPayouts();
+      db.collection('request_payouts')
+        .orderBy('status', 'asc')
+        .orderBy('requestDate', 'desc')
+        .get()
+        .then(payoutsSnap => {
+          const payouts = [];
+          let pendingCount = 0;
+          payoutsSnap.forEach(doc => {
+            const payout = { id: doc.id, ...doc.data() };
+            payouts.push(payout);
+            if (payout.status === 'Pending') pendingCount++;
+          });
+          totalPendingPayoutsLabel.textContent = `Pending Requests: ${pendingCount}`;
+          payoutsGrid.innerHTML = payouts.length > 0
+            ? payouts.map(payout => `
+                <div class="col-md-4">
+                  <div class="card payout-card" data-payout-id="${payout.id}">
+                    <div class="card-body">
+                      <h3 class="card-title text-lg mb-2">Payout #${payout.id}</h3>
+                      <p class="text-gray-400"><strong>User:</strong> ${payout.firstName || 'Unknown'} ${payout.lastName || ''}</p>
+                      <p class="text-gray-400"><strong>Amount:</strong> $${payout.amountUSD?.toFixed(2) || '0.00'}</p>
+                      <p class="text-gray-400"><strong>Status:</strong> ${payout.status || 'Pending'}</p>
+                      <p class="text-gray-400"><strong>Date:</strong> ${payout.requestDate ? new Date(payout.requestDate.toDate()).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : 'N/A'}</p>
+                    </div>
+                  </div>
+                </div>
+              `).join('')
+            : '<p class="text-gray-400">No payout requests found.</p>';
+          attachPayoutEvents();
+        }).catch(error => {
+          showToast(`Error loading payouts: ${error.message}`, 'error');
+        }).finally(() => {
+          hideLoadingPayouts();
+        });
+    }
+
+    // Attach payout click events
+    function attachPayoutEvents() {
+      document.querySelectorAll('.payout-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const payoutId = card.getAttribute('data-payout-id');
+          showPayoutModal(payoutId);
+        });
+      });
+    }
+
+    // Show payout details modal
+    function showPayoutModal(payoutId) {
+      showLoadingPayouts();
+      db.collection('request_payouts').doc(payoutId).get().then(payoutSnap => {
+        if (!payoutSnap.exists) {
+          showToast('Payout not found', 'error');
+          return;
+        }
+        const payout = payoutSnap.data();
+        payoutModalTitle.textContent = `Payout #${payoutId}`;
+        payoutModalContent.innerHTML = `
+          <p><strong>User:</strong> ${payout.firstName || 'Unknown'} ${payout.lastName || ''}</p>
+          <p><strong>Email:</strong> ${payout.email || 'N/A'}</p>
+          <p><strong>Amount:</strong> $${payout.amountUSD?.toFixed(2) || '0.00'}</p>
+          <p><strong>Fees:</strong> $${payout.feesUSD?.toFixed(2) || '0.00'}</p>
+          <p><strong>Date:</strong> ${payout.requestDate ? new Date(payout.requestDate.toDate()).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) : 'N/A'}</p>
+          <p><strong>Status:</strong> ${payout.status || 'Pending'}</p>
+          <p><strong>Method:</strong> ${payout.payMethod || 'N/A'}</p>
+          <p><strong>Phone:</strong> ${payout.phoneNumber || 'N/A'}</p>
+          <p><strong>SIM Holder:</strong> ${payout.simHolderName || 'N/A'}</p>
+          <p><strong>PayPal:</strong> ${payout.paypalEmail || 'N/A'}</p>
+          <textarea class="note-input form-control mt-2" placeholder="Add note..." data-payout-id="${payout.id}">${payout.note || ''}</textarea>
+          <div class="d-flex gap-2 mt-3">
+            ${payout.status === 'Pending' ? `<button class="btn btn-success approve-btn" data-payout-id="${payout.id}" title="Approve"><i class="bi bi-check-circle"></i></button>` : ''}
+            <button class="btn btn-warning change-status-btn" data-payout-id="${payout.id}" title="Change Status"><i class="bi bi-arrow-repeat"></i></button>
+            <button class="btn btn-danger delete-btn" data-payout-id="${payout.id}" title="Delete"><i class="bi bi-trash"></i></button>
+          </div>
+        `;
+        payoutModal.show();
+        attachPayoutModalEvents(payoutId);
+      }).catch(error => {
+        showToast(`Error loading payout data: ${error.message}`, 'error');
+      }).finally(() => {
+        hideLoadingPayouts();
+      });
+    }
+
+    // Attach payout modal events
+    function attachPayoutModalEvents(payoutId) {
+      const approveBtn = payoutModalContent.querySelector('.approve-btn');
+      const changeStatusBtn = payoutModalContent.querySelector('.change-status-btn');
+      const deleteBtn = payoutModalContent.querySelector('.delete-btn');
+      const noteInput = payoutModalContent.querySelector('.note-input');
+
+      if (approveBtn) {
+        approveBtn.addEventListener('click', () => {
+          const note = noteInput.value;
+          approvePayout(payoutId, note);
+          payoutModal.hide();
+        });
+      }
+      if (changeStatusBtn) {
+        changeStatusBtn.addEventListener('click', () => {
+          const note = noteInput.value;
+          changePayoutStatus(payoutId, note);
+          payoutModal.hide();
+        });
+      }
+      if (deleteBtn) {
+        deleteBtn.addEventListener('click', () => {
+          deletePayout(payoutId);
+          payoutModal.hide();
+        });
+      }
+      if (noteInput) {
+        noteInput.addEventListener('change', () => {
+          const note = noteInput.value;
+          updatePayoutNote(payoutId, note);
+        });
+      }
+    }
+
+    // Approve payout and send FCM notification
+    function approvePayout(payoutId, note) {
+      showLoadingPayouts();
+      const payoutRef = db.collection('request_payouts').doc(payoutId);
+      payoutRef.update({
+        status: 'Approved',
+        note: note,
+        approvedDate: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        payoutRef.get().then(payoutSnap => {
+          const payout = payoutSnap.data();
+          db.collection('fcmTokens').doc(payout.userId).get().then(userTokenSnap => {
+            if (userTokenSnap.exists) {
+              const token = userTokenSnap.data().token;
+              fetch('https://fcm.googleapis.com/v1/projects/kinaflix/messages:send', {
+                method: 'POST',
+                headers: {
+                  'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  message: {
+                    token: token,
+                    notification: {
+                      title: 'Payout Approved',
+                      body: `Your payout request of $${payout.amountUSD.toFixed(2)} has been approved.`
+                    }
+                  }
+                })
+              }).catch(error => {
+                showToast(`FCM notification failed: ${error.message}`, 'error');
+              });
+            } else {
+              showToast('No FCM token found for user', 'error');
+            }
+            showToast('Payout approved successfully', 'success');
+            loadPayouts();
+          }).catch(error => {
+            showToast(`Error retrieving FCM token: ${error.message}`, 'error');
+          });
+        }).catch(error => {
+          showToast(`Error retrieving payout: ${error.message}`, 'error');
+        });
+      }).catch(error => {
+        showToast(`Error approving payout: ${error.message}`, 'error');
+      }).finally(() => {
+        hideLoadingPayouts();
+      });
+    }
+
+    // Change payout status and send FCM notification
+    function changePayoutStatus(payoutId, note) {
+      showLoadingPayouts();
+      const payoutRef = db.collection('request_payouts').doc(payoutId);
+      payoutRef.get().then(payoutSnap => {
+        if (!payoutSnap.exists) {
+          showToast('Payout not found', 'error');
+          return;
+        }
+        const payout = payoutSnap.data();
+        const newStatus = payout.status === 'Pending' ? 'Approved' : 'Pending';
+        payoutRef.update({
+          status: newStatus,
+          note: note,
+          approvedDate: newStatus === 'Approved' ? firebase.firestore.FieldValue.serverTimestamp() : null
+        }).then(() => {
+          db.collection('fcmTokens').doc(payout.userId).get().then(userTokenSnap => {
+            if (userTokenSnap.exists) {
+              const token = userTokenSnap.data().token;
+              fetch('https://fcm.googleapis.com/v1/projects/kinaflix/messages:send', {
+                method: 'POST',
+                headers: {
+                  'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  message: {
+                    token: token,
+                    notification: {
+                      title: `Payout Status Changed`,
+                      body: `Your payout request of $${payout.amountUSD.toFixed(2)} is now ${newStatus}.`
+                    }
+                  }
+                })
+              }).catch(error => {
+                showToast(`FCM notification failed: ${error.message}`, 'error');
+              });
+            } else {
+              showToast('No FCM token found for user', 'error');
+            }
+            showToast(`Payout status changed to ${newStatus}`, 'success');
+            loadPayouts();
+          }).catch(error => {
+            showToast(`Error retrieving FCM token: ${error.message}`, 'error');
+          });
+        }).catch(error => {
+          showToast(`Error changing payout status: ${error.message}`, 'error');
+        });
+      }).catch(error => {
+        showToast(`Error retrieving payout: ${error.message}`, 'error');
+      }).finally(() => {
+        hideLoadingPayouts();
+      });
+    }
+
+    // Delete payout
+    function deletePayout(payoutId) {
+      db.collection('request_payouts').doc(payoutId).delete().then(() => {
+        showToast('Payout deleted successfully', 'success');
+        loadPayouts();
+      }).catch(error => {
+        showToast(`Error deleting payout: ${error.message}`, 'error');
+      });
+    }
+
+    // Update payout note
+    function updatePayoutNote(payoutId, note) {
+      db.collection('request_payouts').doc(payoutId).update({ note: note }).then(() => {
+        showToast('Note updated successfully', 'success');
+      }).catch(error => {
+        showToast(`Error updating note: ${error.message}`, 'error');
+      });
+    }
+
+    // Listen for new payout requests
+    function listenForNewPayouts() {
+      try {
+        db.collection('request_payouts')
+          .orderBy('status', 'asc')
+          .orderBy('requestDate', 'desc')
+          .onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
+              if (change.type === 'added' && change.doc.data().status === 'Pending') {
+                const payout = change.doc.data();
+                showToast(`New payout request from ${payout.firstName || 'Unknown'} ${payout.lastName || ''} for $${payout.amountUSD?.toFixed(2) || '0.00'}`, 'success');
+              }
+            });
+            loadPayouts(); // Refresh to update pending count
+          });
+      } catch (error) {
+        showToast(`Error listening for payouts: ${error.message}`, 'error');
+      }
+    }
+
+    // Show loading spinner
+    function showLoading() {
+      loadingSpinner.classList.add('active');
+    }
+
+    // Hide loading spinner
+    function hideLoading() {
+      loadingSpinner.classList.remove('active');
+    }
+
+    // Show payouts spinner
+    function showLoadingPayouts() {
+      loadingSpinnerPayouts.classList.add('active');
+    }
+
+    // Hide payouts spinner
+    function hideLoadingPayouts() {
+      loadingSpinnerPayouts.classList.remove('active');
+    }
+  </script>
+</body>
+</html>

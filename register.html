@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - KinaflixPlus</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #e50914;
+      --dark: #141414;
+      --light: #f4f4f4;
+      --gray: #999;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: var(--dark);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: clamp(1.5rem, 5vw, 1.8rem);
+      color: var(--primary);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .auth-container {
+      max-width: 450px;
+      margin: 2rem auto;
+      padding: clamp(1rem, 4vw, 2rem);
+      background-color: rgba(20, 20, 20, 0.8);
+      border-radius: 8px;
+      width: 90%;
+    }
+
+    .auth-title {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 2rem;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: clamp(0.6rem, 2vw, 0.8rem);
+      border-radius: 4px;
+      border: 1px solid var(--gray);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: var(--light);
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      touch-action: manipulation;
+    }
+
+    .auth-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: clamp(0.8rem, 3vw, 1rem);
+      border-radius: 4px;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+      touch-action: manipulation;
+    }
+
+    .auth-btn:hover {
+      background-color: #f40612;
+    }
+
+    .auth-btn:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+
+    .auth-footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+
+    .auth-footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--dark);
+      color: white;
+      padding: 1rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      max-width: 90%;
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success {
+      background-color: #4CAF50;
+    }
+
+    .toast.error {
+      background-color: #f44336;
+    }
+
+    footer {
+      background-color: var(--dark);
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+
+    @media (max-width: 576px) {
+      .auth-container {
+        padding: 1rem;
+        margin: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">KinaflixPlus</a>
+  </header>
+
+  <div class="auth-container">
+    <h1 class="auth-title">Create Account</h1>
+    
+    <form class="auth-form" id="register-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password (min 6 characters)</label>
+        <input type="password" id="password" minlength="6" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" minlength="6" required>
+      </div>
+      
+      <button type="submit" class="auth-btn">Sign Up</button>
+      
+      <div class="auth-footer">
+        <p>Already have an account? <a href="login.html">Sign in now</a></p>
+      </div>
+    </form>
+  </div>
+  
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+  
+  <footer>
+    <p>© 2025 KinaflixPlus. All rights reserved.</p>
+  </footer>
+  
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    // Import Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+    import { 
+      getFirestore,
+      doc,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBrRTdhrRTRL9ZfZpb-m-1XBmbDIsXF9k",
+      authDomain: "kinaflix.firebaseapp.com",
+      databaseURL: "https://kinaflix-default-rtdb.firebaseio.com",
+      projectId: "kinaflix",
+      storageBucket: "kinaflix.firebasestorage.app",
+      messagingSenderId: "318239806217",
+      appId: "1:318239806217:web:421533021d4a2bf43239d8",
+      measurementId: "G-GVW6CMN8DS"
+    };
+
+    // Initialize Firebase
+    let app, auth, db;
+    try {
+      app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getFirestore(app);
+    } catch (error) {
+      showToast('Failed to initialize Firebase. Please check your configuration.', 'error');
+      console.error('Firebase initialization error:', error);
+    }
+
+    // DOM Elements
+    const registerForm = document.getElementById('register-form');
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const toast = document.getElementById('toast');
+
+    // Client-side validation
+    const validateInputs = (name, email, password, confirmPassword) => {
+      if (name.length < 2) {
+        showToast('Name must be at least 2 characters', 'error');
+        return false;
+      }
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailRegex.test(email)) {
+        showToast('Please enter a valid email address', 'error');
+        return false;
+      }
+      if (password !== confirmPassword) {
+        showToast("Passwords don't match", 'error');
+        return false;
+      }
+      return true;
+    };
+
+    // Form submission
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      
+      if (!validateInputs(name, email, password, confirmPassword)) {
+        return;
+      }
+
+      if (!auth || !db) {
+        showToast('Authentication service unavailable. Please try again later.', 'error');
+        return;
+      }
+
+      registerForm.querySelector('.auth-btn').disabled = true;
+      showLoading();
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        
+        await setDoc(doc(db, 'plusers', userCredential.user.uid), {
+          name: name,
+          email: email,
+          phone_number: '',
+          address: '',
+          city: '',
+          province_state: '',
+          country: '',
+          total_watch_time: 0,
+          see_watch_time: 0,
+          watch_watch_time: 0,
+          index_watch_time: 0,
+          indexp_watch_time: 0,
+          genre_watch_time: 0,
+          createdAt: new Date(),
+          watchlist: [],
+          history: []
+        });
+        
+        showToast('Registration successful!', 'success');
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 3000);
+      } catch (error) {
+        showToast(getErrorMessage(error.code || error.message), 'error');
+        hideLoading();
+        registerForm.querySelector('.auth-btn').disabled = false;
+        console.error('Registration error:', error);
+      }
+    });
+
+    // Show Toast Notification
+    function showToast(message, type = 'info') {
+      toast.textContent = message;
+      toast.className = 'toast';
+      toast.classList.add(type, 'show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    }
+
+    // Show Loading Overlay
+    function showLoading() {
+      loadingOverlay.classList.add('active');
+    }
+
+    // Hide Loading Overlay
+    function hideLoading() {
+      loadingOverlay.classList.remove('active');
+    }
+
+    // Get user-friendly error messages
+    function getErrorMessage(errorCode) {
+      switch (errorCode) {
+        case 'auth/email-already-in-use':
+          return 'This email is already registered. Try signing in.';
+        case 'auth/invalid-email':
+          return 'Invalid email address format.';
+        case 'auth/weak-password':
+          return 'Password must be at least 6 characters long.';
+        case 'auth/network-request-failed':
+          return 'Network error. Please check your connection and try again.';
+        case 'auth/too-many-requests':
+          return 'Too many attempts. Please try again later.';
+        case 'auth/invalid-api-key':
+        case 'auth/app-not-authorized':
+          return 'Invalid Firebase configuration. Please contact support.';
+        default:
+          return 'Registration failed. Please try again or contact support.';
+      }
+    }
+  </script>
+</body>
+</html>
